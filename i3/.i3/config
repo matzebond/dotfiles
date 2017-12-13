@@ -1,0 +1,235 @@
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango: Hack 12,Awesome 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+floating_maximum_size 1200 x 800
+
+hide_edge_borders both
+
+# Borders
+for_window [class="^.*"] border pixel 2
+
+focus_follows_mouse no
+
+bindsym $mod+i exec "i3-input -F '%s'"
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# workspace_auto_back_and_forth yes
+bindsym $mod+z workspace back_and_forth
+bindsym $mod+Shift+z move container to workspace back_and_forth
+bindsym $mod+m workspace back_and_forth
+bindsym $mod+Shift+m move container to workspace back_and_forth
+
+# Show the first scratchpad window
+bindsym $mod+period scratchpad show
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+period move scratchpad
+
+# start a terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu/rofi (a program launcher)
+bindsym $mod+y exec rofi -show run # programs in path
+bindsym $mod+d exec rofi -show drun # applications
+bindsym $mod+space exec rofi -show window # applications
+# i3-dmenu-desktop --dmenu="rofi -dmenu run"
+
+# toogle redshift color adjustment
+bindsym $mod+Ctrl+r exec pkill -USR1 redshift
+
+# split in horizontal/vertical orientation
+bindsym $mod+s split h
+bindsym $mod+v split v
+
+# change container layout (stacked, tabbed, toggle split)
+# bindsym $mod+t layout stacking
+# bindsym $mod+w layout tabbed
+bindsym $mod+t layout toggle split
+bindsym $mod+x layout toggle
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+# bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+Shift+p focus parent
+# focus the child container
+bindsym $mod+c focus child
+
+# needs i3lock-blur
+bindsym $mod+Escape exec i3lock -f
+
+bindsym $mod+p exec ~/script/screenshot.sh
+
+bindsym $mod+Shift+y exec ~/script/rofi_xkb.sh
+
+bindsym $mod+Shift+d exec ~/script/monitor_layout.sh
+
+set $left h
+set $down j
+set $up k
+set $right l
+
+# change focus
+bindsym $mod+$up focus up
+bindsym $mod+$down focus down
+bindsym $mod+$left focus left
+bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+$down move down
+bindsym $mod+Shift+$left move left
+bindsym $mod+Shift+$up move up
+bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+
+# Workspace variable names
+set $WS1 "1"
+set $WS2 "2"
+set $WS3 "3"
+set $WS4 "4"
+set $WS5 "5"
+set $WS6 "6"
+set $WS7 "7"
+set $WS8 "8"
+set $WS9 "9"
+set $WS10 "10"
+
+# Switch to workspace
+bindsym $mod+1 workspace $WS1
+bindsym $mod+2 workspace $WS2
+bindsym $mod+3 workspace $WS3
+bindsym $mod+4 workspace $WS4
+bindsym $mod+5 workspace $WS5
+bindsym $mod+6 workspace $WS6
+bindsym $mod+7 workspace $WS7
+bindsym $mod+8 workspace $WS8
+bindsym $mod+9 workspace $WS9
+bindsym $mod+0 workspace $WS10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $WS1
+bindsym $mod+Shift+2 move container to workspace $WS2
+bindsym $mod+Shift+3 move container to workspace $WS3
+bindsym $mod+Shift+4 move container to workspace $WS4
+bindsym $mod+Shift+5 move container to workspace $WS5
+bindsym $mod+Shift+6 move container to workspace $WS6
+bindsym $mod+Shift+7 move container to workspace $WS7
+bindsym $mod+Shift+8 move container to workspace $WS8
+bindsym $mod+Shift+9 move container to workspace $WS9
+bindsym $mod+Shift+0 move container to workspace $WS10
+
+# works nice with neo2 layout
+bindsym $mod+adiaeresis workspace next
+bindsym $mod+odiaeresis workspace back_and_forth
+bindsym $mod+udiaeresis workspace prev
+
+# can't bind special characters when using neo2 layout
+# bindcode $mod+57 workspace next
+# bindsym $mod+plus workspace next
+
+
+# Power control mode
+set $power_control "[l]ock log[o]ut [s]uspend [h]ibernate [r]eboot [p]oweroff"
+mode  $power_control {
+    bindsym l exec i3lock -f; mode "default"
+    bindsym o exec i3-msg exit; mode "default"
+    bindsym s exec systemctl suspend; mode "default"
+    bindsym h exec systemctl hibernate; mode "default"
+    bindsym r exec systemctl reboot; mode "default"
+    bindsym p exec systemctl poweroff; mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+n mode $power_control
+
+# Audio controls (volume up, volume down, toggle mute)
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioMute exec amixer -q set Master toggle && pkill -SIGRMIT+10 i3blocks
+# bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -SIGRTMIN+10 i3blocks
+
+# Sreen brightness controls (brightness up, brightness down)
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && pkill -SIGRTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && pkill -SIGRTMIN+2 i3blocks
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    set $size 1 px or 1 ppt
+
+# Pressing left will shrink the window’s width.
+# Pressing right will grow the window’s width.
+# Pressing up will shrink the window’s height.
+# Pressing down will grow the window’s height.
+    bindsym $left resize shrink width $size
+    bindsym $down resize grow height $size
+    bindsym $up resize shrink height $size
+    bindsym $right resize grow width $size
+
+# same bindings, but for the arrow keys
+    bindsym Left resize shrink width $size
+    bindsym Up resize grow height $size
+    bindsym Down resize shrink height $size
+    bindsym Right resize grow width $size
+
+# back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+# bar {
+#     font pango:DejaVu Sans Mono, Awesome 10
+#     status_command i3blocks -c ~/.i3/i3blocks.conf
+#     position top
+#     tray_output primary
+# }
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+exec --no-startup-id twmnd
+exec --no-startup-id udiskie -A -s
+exec --no-startup-id redshift
+
+# exec --no-startup-id termite
+# start a few common applications in their workspaces
+exec --no-startup-id i3-msg 'workspace $WS1; exec /usr/bin/termite'
+exec --no-startup-id i3-msg 'workspace $WS2; exec /usr/bin/emacs'
+exec --no-startup-id i3-msg 'workspace $WS3; exec /usr/bin/firefox; layout tabbed'

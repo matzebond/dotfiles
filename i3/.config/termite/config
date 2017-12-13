@@ -1,0 +1,73 @@
+[options]
+font = Hack 11
+
+[colors]
+# Base16 Default Dark
+# Author: Chris Kempson (http://chriskempson.com)
+
+# foreground      = #d8d8d8
+# foreground_bold = #e8e8e8
+# cursor          = #e8e8e8
+# background      = #181818
+#
+# # 16 color space
+#
+# # Black, Gray, Silver, White
+# color0  = #181818
+# color8  = #585858
+# color7  = #d8d8d8
+# color15 = #f8f8f8
+#
+# # Red
+# color1  = #ab4642
+# color9  = #ab4642
+#
+# # Green
+# color2  = #a1b56c
+# color10 = #a1b56c
+#
+# # Yellow
+# color3  = #f7ca88
+# color11 = #f7ca88
+#
+# # Blue
+# color4  = #7cafc2
+# color12 = #7cafc2
+#
+# # Purple
+# color5  = #ba8baf
+# color13 = #ba8baf
+#
+# # Teal
+# color6  = #86c1b9
+# color14 = #86c1b9
+#
+# # Extra colors
+# color16 = #dc9656
+# color17 = #a16946
+# color18 = #282828
+# color19 = #383838
+# color20 = #b8b8b8
+# color21 = #e8e8e8
+
+background = #202020
+foreground = #c0c0c0
+color0 = #4e4e4e
+color1 = #d68787 
+color2 = #5f865f
+color3 = #d8af5f
+color4 = #85add4
+color5 = #d7afaf
+color6 = #87afaf
+color7 = #d0d0d0
+color8 = #626262
+color9 = #d75f87
+color10 = #87af87
+color11 = #ffd787
+color12 = #add4fb
+color13 = #ffafaf
+color14 = #87d7d7
+color15 = #e4e4e4
+cursorColor = #d0d0d0
+cursorColor2 = #3a3a3a
+colorBD = #e4e4e4

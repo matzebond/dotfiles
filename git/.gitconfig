@@ -1,0 +1,13 @@
+[user]
+	name = Matthias Schmitt
+	email = male.schmitt@posteo.de
+[push]
+	default = simple
+	followTags = true
+[color]
+	ui = auto
+[core]
+	editor = vim
+	autocrlf = input
+[merge]
+	tool = vimdiff
