@@ -387,6 +387,10 @@ before packages are loaded."
   (setq seoul256-background 234)
   ;; (load-theme 'seoul256 t)
 
+  ;; always follow symlinks to vc controlled sources
+  ;; happens a lot because my dotfiles are linked by stow
+  (setq vc-follow-symlinks t)
+
   (setq-default c-basic-offset 8)
 
   ;; insert buffer name in shell-command minibuffer (M-!, Space !)

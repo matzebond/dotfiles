@@ -1,13 +1,20 @@
 [user]
 	name = Matthias Schmitt
 	email = male.schmitt@posteo.de
+[color]
+	ui = auto
 [push]
 	default = simple
 	followTags = true
 [color]
 	ui = auto
 [core]
-	editor = vim
 	autocrlf = input
 [merge]
 	tool = vimdiff
+[alias]
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	branch-graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+[http]
+	postBuffer = 524288000
