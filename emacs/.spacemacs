@@ -35,6 +35,7 @@ This function should only modify configuration layer settings."
      ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     treemacs
      python
      vimscript
      html
@@ -78,6 +79,7 @@ This function should only modify configuration layer settings."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
+                                      evil-collection
                                       seoul256-theme
                                       evil-matchit
                                       nvm
@@ -382,7 +384,10 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (global-evil-matchit-mode 1)
+
+  (global-evil-mc-mode)
+
+  (global-evil-matchit-mode -1)
 
   (setq seoul256-background 234)
   ;; (load-theme 'seoul256 t)
@@ -425,6 +430,11 @@ before packages are loaded."
     (let ((backward (evil-commentary/ensure-in-comment-block (point) (point) nil))
           (forward (evil-commentary/ensure-in-comment-block (point) (point) t)))
       (list (car backward) (cadr forward))))
+
+  (defun evil-commentary/uncomment-a-block ()
+    (let ((comment-block (evil-commentary/a-comment-block)))
+      (evil-commentary (car comment-block) (cadr comment-block))
+      ))
 
    (define-key evil-outer-text-objects-map "c" #'evil-commentary/a-comment-block)
 
@@ -510,7 +520,7 @@ This function is called at the very end of Spacemacs initialization."
  '(evil-want-Y-yank-to-eol t)
  '(package-selected-packages
    (quote
-    (xpm fontawesome ghub helm-gtags ggtags stickyfunc-enhance srefactor disaster company-c-headers cmake-mode clang-format magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht winum unfill fuzzy nvm magithub rjsx-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data yaml-mode toml-mode sql-indent racer intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-rust flycheck-haskell company-ghci company-ghc ghc haskell-mode company-emacs-eclim eclim company-cabal cmm-mode cargo rust-mode xterm-color smeargle shell-pop orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mwim multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor dash async eshell-z eshell-prompt-extras esh-help company-tern dash-functional tern company-statistics company-auctex company auto-yasnippet auto-dictionary ac-ispell auto-complete web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode auctex-latexmk auctex ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
+    (realgud live-py-mode google-c-style diff-hl dante lcr counsel-projectile counsel ivy smartparens highlight rtags helm helm-core ghub epl hydra helm-gtags ggtags stickyfunc-enhance srefactor disaster company-c-headers cmake-mode clang-format magit-gh-pulls github-search github-clone github-browse-file gist gh marshal logito pcache ht winum unfill fuzzy nvm magithub rjsx-mode web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data yaml-mode toml-mode sql-indent racer intero hlint-refactor hindent helm-hoogle haskell-snippets flycheck-rust flycheck-haskell company-ghci company-ghc ghc haskell-mode company-emacs-eclim eclim company-cabal cmm-mode cargo rust-mode xterm-color smeargle shell-pop orgit org-projectile org-present org org-pomodoro alert log4e gntp org-download mwim multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link gh-md flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit with-editor dash async eshell-z eshell-prompt-extras esh-help company-tern dash-functional tern company-statistics company-auctex company auto-yasnippet auto-dictionary ac-ispell auto-complete web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode auctex-latexmk auctex ws-butler window-numbering which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spacemacs-theme spaceline restart-emacs request rainbow-delimiters quelpa popwin persp-mode pcre2el paradox org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide ido-vertical-mode hungry-delete hl-todo highlight-parentheses highlight-numbers highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state evil-indent-plus evil-iedit-state evil-exchange evil-escape evil-ediff evil-args evil-anzu eval-sexp-fu elisp-slime-nav dumb-jump define-word column-enforce-mode clean-aindent-mode auto-highlight-symbol auto-compile aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line)))
  '(paradox-github-token t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
