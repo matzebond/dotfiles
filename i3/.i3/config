@@ -13,6 +13,10 @@ hide_edge_borders both
 # Borders
 for_window [class="^.*"] border pixel 2
 
+for_window [class="keepassxc"] floating enable
+for_window [class="Godot_Engine"] floating enable
+for_window [class="Godot"] floating enable
+
 focus_follows_mouse no
 
 bindsym $mod+i exec "i3-input -F '%s'"
@@ -79,11 +83,11 @@ bindsym $mod+c focus child
 # needs i3lock-blur
 bindsym $mod+Escape exec i3lock -f
 
-bindsym $mod+p exec ~/script/screenshot.sh
+bindsym $mod+p exec ~/scripts/screenshot.sh
 
-bindsym $mod+Shift+y exec ~/script/rofi_xkb.sh
+bindsym $mod+Shift+y exec ~/scripts/rofi_xkb.sh
 
-bindsym $mod+Shift+d exec ~/script/monitor_layout.sh
+bindsym $mod+Shift+d exec ~/scripts/monitor_layout.sh
 
 set $left h
 set $down j
