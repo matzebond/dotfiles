@@ -53,9 +53,10 @@ zplug "plugins/shrink-path", from:oh-my-zsh
 zplug "1ambda/zsh-snippets"
 # zplug "willghatch/zsh-snippets"
 
-zplug 'dracula/zsh', as:theme
+# zplug 'dracula/zsh', as:theme
 # zplug 'zaari/pieni', as:theme
 # zplug 'miekg/lean'
+zplug "nojhan/liquidprompt"
 
 # zplug mafredri/zsh-async, from:github
 # zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
@@ -102,7 +103,6 @@ alias reloadZsh='source ~/.zshrc'
 alias redshift_toogle='pkill -USR1 redshift'
 alias help=run-help
 alias sudo="sudo " # allows to use sudo in aliases
-alias pacman="sudo pacman"
 alias part="mpv ~/dld/*.part"
 
 zsh_snippets add h '| head ' > /dev/null
