@@ -2,9 +2,10 @@ export NAME="Matthias Schmitt"
 export EMAIL="male.schmitt@posteo.de"
 
 export LC_CTYPE=en_US.UTF-8
-export EDITOR='emacsclient'
+export EDITOR='vim'
+export SUDO_EDITOR='vim'
 export VISUAL='emacsclient'
-export ALTERNATIVE_EDITOR='vim'
+# export ALTERNATIVE_EDITOR='vim'
 export FZF_DEFAULT_OPTS='--height 100% --reverse' 
 
 export PATH=$PATH:$HOME/.local/bin
