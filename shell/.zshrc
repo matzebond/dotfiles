@@ -41,12 +41,19 @@ source ~/.zplug/init.zsh
 
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
-zplug "robbyrussell/oh-my-zsh", use:'lib/*', defer:0
+zplug "robbyrussell/oh-my-zsh", use:'lib/*', ignore:'*theme*'
 
 zplug "rupa/z", use:z.sh
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
 zplug "zsh-users/zsh-autosuggestions"
+
+zplug "junegunn/fzf-bin", \
+      from:gh-r, \
+      as:command, \
+      rename-to:fzf, \
+      use:"*linux*amd64*"
 zplug "andrewferrier/fzf-z", defer:1
+
 # zplug "djui/alias-tips"
 # zplug "changyuheng/zsh-interactive-cd", defer:1
 zplug "plugins/shrink-path", from:oh-my-zsh
@@ -54,9 +61,11 @@ zplug "1ambda/zsh-snippets"
 # zplug "willghatch/zsh-snippets"
 
 # zplug 'dracula/zsh', as:theme
+# zstyle :prompt:shrink_path fish yes
 # zplug 'zaari/pieni', as:theme
 # zplug 'miekg/lean'
-zplug "nojhan/liquidprompt"
+# zplug "nojhan/liquidprompt"
+zplug "agkozak/agkozak-zsh-theme", defer:1
 
 # zplug mafredri/zsh-async, from:github
 # zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
@@ -79,6 +88,7 @@ setopt HIST_IGNORE_ALL_DUPS
 HISTSIZE=10000
 SAVEHIST=10000
 
+setopt extendedglob
 
 # if [[ -n $SSH_CONNECTION ]]; then
 # else
@@ -90,6 +100,7 @@ export TERM=xterm-256color
 export LESS=-r
 
 alias ls='ls --group-directories-first --color=auto'
+alias l='ls -Alh'
 alias ll='ls -alh'
 alias df='df -h'
 alias tree='tree -C'
@@ -122,8 +133,6 @@ bindkey '^S^S' zsh-snippets-widget-expand
 # alias -g NUL='> /dev/null 2>&1'
 
 # bindkey '^G' #
-
-
 
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
