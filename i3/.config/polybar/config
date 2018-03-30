@@ -21,7 +21,7 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main]
-;monitor = ${env:MONITOR:HDMI-1}
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 23
 offset-x = 0
@@ -126,6 +126,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+pin-workspaces = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
