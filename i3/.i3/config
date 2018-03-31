@@ -248,8 +248,7 @@ exec --no-startup-id twmnd
 exec --no-startup-id udiskie -A -s
 exec --no-startup-id redshift
 
-# exec --no-startup-id termite
 # start a few common applications in their workspaces
-exec --no-startup-id i3-msg 'workspace $WS1; exec /usr/bin/termite'
-exec --no-startup-id i3-msg 'workspace $WS2; exec /usr/bin/emacs'
-exec --no-startup-id i3-msg 'workspace $WS3; exec /usr/bin/firefox; layout tabbed'
+exec i3-msg 'workspace $WS1; exec /usr/bin/termite'
+exec i3-msg 'workspace $WS2; exec ~/scripts/emacsclient.sh'
+exec i3-msg 'workspace $WS3; exec /usr/bin/firefox; layout tabbed'
