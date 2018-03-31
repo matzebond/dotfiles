@@ -34,6 +34,15 @@ bindsym $mod+Shift+z move container to workspace back_and_forth
 bindsym $mod+m workspace back_and_forth
 bindsym $mod+Shift+m move container to workspace back_and_forth
 
+bindsym $mod+Tab focus output right
+bindsym $mod+Shift+Tab move workspace to output right
+
+# Some mouse commands
+bindsym --release button2 kill
+bindsym --whole-window $mod+button2 floating toggle
+bindsym --whole-window $mod+button9 move left
+bindsym --whole-window $mod+button8 move right
+
 # Show the first scratchpad window
 bindsym $mod+period scratchpad show
 # Make the currently focused window a scratchpad
