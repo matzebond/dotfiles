@@ -186,6 +186,13 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- && pkill -SIGRTMIN+10
 bindsym XF86AudioMute exec amixer -q set Master toggle && pkill -SIGRMIT+10 i3blocks
 # bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -SIGRTMIN+10 i3blocks
 
+# Media player key bindings (you need playerctl for this to work.)
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+
 # Sreen brightness controls (brightness up, brightness down)
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && pkill -SIGRTMIN+2 i3blocks
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && pkill -SIGRTMIN+2 i3blocks
