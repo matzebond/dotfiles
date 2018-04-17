@@ -5,9 +5,3 @@ fi
 if [[ "$SSH_AGENT_PID" == "" ]]; then
     eval "$(<~/.ssh-agent-thing)"
 fi
-
-
-export NVM_DIR="/home/maschm/.nvm"
-
-export PATH=$PATH:$HOME"/.node_modules/bin"
-export npm_config_prefix=~/.node_modules
