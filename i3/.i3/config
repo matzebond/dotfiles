@@ -130,6 +130,12 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# move the workspace (between outputs)
+bindsym $mod+Ctrl+$down move workspace to output down
+bindsym $mod+Ctrl+$left move workspace to output left
+bindsym $mod+Ctrl+$up move workspace to output up
+bindsym $mod+Ctrl+$right move workspace to output right
+
 
 # Workspace variable names
 set $WS1 "1"
@@ -142,6 +148,10 @@ set $WS7 "7"
 set $WS8 "8"
 set $WS9 "9"
 set $WS10 "10"
+
+workspace $WS1 output primary
+workspace $WS2 output primary
+workspace $WS3 output primary
 
 # Switch to workspace
 bindsym $mod+1 workspace $WS1
