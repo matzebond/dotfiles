@@ -8,14 +8,17 @@ font pango: Hack 12,Awesome 8
 floating_modifier $mod
 floating_maximum_size 1200 x 800
 
-hide_edge_borders both
 
 # Borders
+default_border pixel 2
 for_window [class="^.*"] border pixel 2
+default_floating_border normal
+for_window [floating ] border normal
+hide_edge_borders smart
 
 for_window [class="keepassxc"] floating enable
-for_window [class="Godot_Engine"] floating enable
-for_window [class="Godot"] floating enable
+for_window [instance="^Godot_Engine$" class="Godot"] floating enable
+# for_window [class="Godot"] floating enable
 
 focus_follows_mouse no
 
