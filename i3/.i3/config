@@ -97,7 +97,7 @@ bindsym $mod+Escape exec i3lock -f
 
 bindsym $mod+p exec ~/scripts/screenshot.sh
 
-bindsym $mod+Shift+y exec ~/scripts/rofi_xkb.sh
+bindcode $mod+Shift+48 exec ~/scripts/rofi_xkb.sh
 
 bindsym $mod+Shift+d exec ~/scripts/monitor_layout.sh
 
