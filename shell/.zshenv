@@ -6,7 +6,6 @@ export EDITOR='vim'
 export SUDO_EDITOR='vim'
 export VISUAL='emacsclient'
 # export ALTERNATIVE_EDITOR='vim'
-export FZF_DEFAULT_OPTS='--height 100% --reverse' 
 
 export PATH=$PATH:$HOME/.local/bin
 

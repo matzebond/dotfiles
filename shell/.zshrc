@@ -112,9 +112,10 @@ alias screensaver='xset s'
 alias reloadXresources='xrdb ~/.Xresources'
 alias reloadZsh='source ~/.zshrc'
 alias redshift_toogle='pkill -USR1 redshift'
-alias help=run-help
-alias sudo="sudo " # allows to use sudo in aliases
-alias part="mpv ~/dld/*.part"
+alias help='run-help'
+alias sudo='sudo ' # allows to use sudo in aliases
+alias part='mpv ~/dld/*.part'
+alias download='aria2c'
 
 zsh_snippets add h '| head ' > /dev/null
 zsh_snippets add t '| tail ' > /dev/null
@@ -123,16 +124,19 @@ zsh_snippets add g '| grep ' > /dev/null
 zsh_snippets add wc '| wc ' > /dev/null
 zsh_snippets add nul '> /dev/null 2>&1' > /dev/null
 zsh_snippets add null '> /dev/null 2>&1' > /dev/null
-bindkey '^S^S' zsh-snippets-widget-expand
+bindkey '^S' zsh-snippets-widget-expand
 
-# alias -g H='| head'
-# alias -g T='| tail'
-# alias -g L='| less'
-# alias -g G='| grep'
-# alias -g WC='| wc'
-# alias -g NUL='> /dev/null 2>&1'
+alias -g H='| head'
+alias -g T='| tail'
+alias -g L='| less'
+alias -g G='| grep'
+alias -g WC='| wc'
+alias -g NUL='> /dev/null 2>&1'
 
-# bindkey '^G' #
+# bindkey '^Y' undo
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
 
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
