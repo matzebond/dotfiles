@@ -50,7 +50,7 @@ This function should only modify configuration layer settings."
      rust
      haskell
      latex
-     helm
+     ivy
      better-defaults
      emacs-lisp
      git
@@ -536,6 +536,8 @@ before packages are loaded."
     (lambda () (interactive)
       (insert (buffer-name (window-buffer (minibuffer-selected-window))))))
 
+  (add-to-list 'auto-mode-alist '("PKGBUILD\\'" . shell-script-mode))
+  ;; (add-to-list 'auto-mode-alist '("install\\'" . shell-script-mode))
 
   (defun evil-commentary/ensure-in-comment-block (beg end forward)
     (save-excursion
