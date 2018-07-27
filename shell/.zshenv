@@ -9,8 +9,6 @@ export VISUAL='emacsclient'
 
 export PATH=$PATH:$HOME/.local/bin
 
-export RUST_SRC_PATH='/home/maschm/src/rust/src'
-export PATH=$PATH:$RUST_SRC_PATH
 export PATH=$PATH:$HOME/.cargo/bin
 
 export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
