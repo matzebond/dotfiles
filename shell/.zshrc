@@ -148,7 +148,7 @@ bindkey "^[[3;5~" backward-kill-word
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_OPTS='--height 100% --reverse' 
+export FZF_DEFAULT_OPTS='--height 100% --reverse'
 
 # Use fd (https://github.com/sharkdp/fd) instead of the default find
 # command for listing path candidates.

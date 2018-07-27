@@ -215,7 +215,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
-# Sreen brightness controls (brightness up, brightness down)
+# Screen brightness controls (brightness up, brightness down)
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && pkill -SIGRTMIN+2 i3blocks
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && pkill -SIGRTMIN+2 i3blocks
 
