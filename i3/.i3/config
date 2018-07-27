@@ -101,6 +101,9 @@ bindcode $mod+Shift+48 exec ~/scripts/rofi_xkb.sh
 
 bindsym $mod+Shift+d exec ~/scripts/monitor_layout.sh
 
+#keepassXC autotype
+#bindsym $mod+q nop
+
 set $left h
 set $down j
 set $up k
