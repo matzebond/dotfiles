@@ -34,50 +34,61 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     ;; ----------------------------------------------------------------
-     ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press `SPC f e R' (Vim style) or
-     ;; `M-m f e R' (Emacs style) to install them.
-     ;; ----------------------------------------------------------------
-     treemacs
-     python
-     vimscript
-     html
-     react
-     javascript
-     yaml
-     sql
-     rust
-     haskell
-     latex
-     ivy
      better-defaults
-     emacs-lisp
+
+     evil-commentary
+     ;; evil-snipe
+
+     (ivy :variables
+          ivy-enable-advanced-buffer-information t)
+
+     treemacs
+
+     (mu4e :variables
+           mu4e-installation-path "/usr/share/emacs/site-lisp"
+           mu4e-enable-notifications t)
+
+     (auto-completion :variables
+                      auto-completion-enable-snippets-in-popup t
+                      auto-completion-enable-help-tooltip t)
+     (syntax-checking :variables
+                      syntax-checking-enable-by-default nil)
+     (spell-checking)
+
+     (shell :variables
+            shell-default-height 30
+            ;; spell-checking-enable-auto-dictionary t
+            shell-default-position 'bottom)
+     shell-scripts
+
      git
      github
-     markdown
-     org
+     ;; version-control
+
      docker
-     gtags
+
+     org
+     markdown
+     yaml
+
+     latex
+     bibtex
+
+     emacs-lisp
      (c-c++ :variables
             c-c++-enable-c++11 t
             c-c++-enable-clang-support t
             c-c++-enable-google-style nil
             c-c++-default-mode-for-headers 'c++-mode)
-     ;; semantic
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
-     (auto-completion :variables
-                      auto-completion-enable-snippets-in-popup nil)
-     (syntax-checking :variables
-                      syntax-checking-enable-by-default nil)
-     (spell-checking)
-      ;; :variables
-                     ;; spell-checking-enable-auto-dictionary t)
-     evil-commentary
-     ;; evil-snipe
-     ;; version-control
+     java
+     python
+     javascript
+     react
+     html
+     sql
+     rust
+     haskell
+     gtags
      )
 
    ;; List of additional packages that will be installed without being
