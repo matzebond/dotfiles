@@ -136,7 +136,10 @@ alias -g NUL='> /dev/null 2>&1'
 # bindkey '^Y' undo
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
-bindkey "^[[3;5~" backward-kill-word
+bindkey "^[[3;5~" kill-word
+bindkey "^[[3;3~" kill-word
+
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
