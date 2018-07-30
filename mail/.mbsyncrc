@@ -1,0 +1,40 @@
+CopyArrivalDate yes
+
+IMAPStore posteo-remote
+Host posteo.de
+Port 143
+User male.schmitt@posteo.de
+PassCmd "gpg --quiet --for-your-eyes-only --no-tty -d ~/.config/mail/posteo_pass.gpg"
+SSLType STARTTLS
+
+MaildirStore posteo-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/posteo/
+Inbox ~/.mail/posteo/Inbox
+
+Channel posteo
+Master :posteo-remote:
+Slave :posteo-local:
+Create Both
+SyncState *
+
+IMAPStore uni-remote
+Host imap.kit.edu
+Port 993
+User uydvo@student.kit.edu
+PassCmd "gpg --quiet --for-your-eyes-only --no-tty -d ~/.config/mail/uni_pass.gpg"
+SSLType IMAPS
+AuthMech LOGIN
+
+MaildirStore uni-local
+Subfolders Verbatim
+# The trailing "/" is important
+Path ~/.mail/uni/
+Inbox ~/.mail/uni/Inbox
+
+Channel uni
+Master :uni-remote:
+Slave :uni-local:
+Create Both
+SyncState *

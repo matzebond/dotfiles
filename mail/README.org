@@ -1,0 +1,21 @@
+* Setup
+
+Install isync which provides the mbsync program
+
+#+BEGIN_SRC sh
+packman -S isync
+#+END_SRC
+
+Make the directories in which the mail will be stored 
+
+#+BEGIN_SRC sh
+mkdir -p .mail/{uni,posteo}
+#+END_SRC
+
+* Use
+  
+To get the mail from all accounts use
+
+#+BEGIN_SRC sh
+mbsync --all
+#+END_SRC
