@@ -6,6 +6,7 @@ export EDITOR='vim'
 export SUDO_EDITOR='vim'
 export VISUAL='emacsclient'
 # export ALTERNATIVE_EDITOR='vim'
+export BROWSER="/usr/bin/firefox"
 
 export PATH=$PATH:$HOME/.local/bin
 
