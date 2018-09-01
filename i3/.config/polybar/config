@@ -51,11 +51,10 @@ seperator = "|"
 font-0 = Hack:size=10
 font-1 = FontAwesome:size=10
 
-; modules-left = bspwm i3 xwindow
 modules-left = i3 mpd
+modules-center = xwindow i3close
+modules-right = i3menu xbacklight volume wlan eth battery date time
 ; filesystem
-modules-center = xwindow
-modules-right = xbacklight volume wlan eth battery date time
 
 tray-position = right
 tray-padding = 2
@@ -73,6 +72,14 @@ tray-padding = 2
 ; scroll-up = i3wm-wsnext
 ; scroll-down = i3wm-wsprev
 
+; click-left = 
+; click-middle = 
+; click-right =
+; scroll-up =
+; scroll-down =
+; double-click-left =
+; double-click-middle =
+; double-click-right =
 
 [module/xwindow]
 type = internal/xwindow
@@ -163,7 +170,7 @@ port = 6600
 
 ; Seconds to sleep between progressbar/song timer sync
 ; Default: 1
-interval = 2
+interval = 5
 
 icon-play = 
 icon-pause = 
@@ -271,7 +278,9 @@ format-underline = #0a6cf5
 label = %time%
 
 [module/volume]
-type = internal/volume
+type = internal/pulseaudio
+
+use-ui-max = false
 
 format-volume = <label-volume>
 label-volume = " %percentage%%"
@@ -354,5 +363,34 @@ menu-2-0 = power off
 menu-2-0-exec = sudo poweroff
 menu-2-1 = cancel
 menu-2-1-exec = menu-open-0
+
+[module/i3close]
+type = custom/script
+exec = echo test
+label = "X"
+click-left = i3-msg kill
+click-right = i3-msg kill
+click-middle = i3-msg "move container to output right"
+scroll-up = i3-msg "scratchpad show"
+scroll-down = i3-msg "scratchpad show"
+
+
+[module/i3menu]
+type = custom/menu
+
+label-open = i3
+label-separator = |
+expand-right = left
+
+menu-0-0 = "Kill Window"
+menu-0-0-exec = i3-msg kill
+menu-0-1 = "Other Monitor"
+menu-0-1-exec = i3-msg "move container to output right; focus output right"
+menu-0-2 = "Scratchpad"
+menu-0-2-exec = i3-msg "scratchpad show"
+
+scroll-up = i3-msg "scratchpad show"
+scroll-down = i3-msg "scratchpad show"
+
 
 ; vim:ft=dosini
