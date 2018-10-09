@@ -6,19 +6,22 @@ font pango: Hack 12,Awesome 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-floating_maximum_size 1200 x 800
+# floating_maximum_size 1200 x 800
 
 
 # Borders
 default_border pixel 2
 for_window [class="^.*"] border pixel 2
 default_floating_border normal
-for_window [floating ] border normal
+for_window [floating] border normal
 hide_edge_borders smart
 
 for_window [class="keepassxc"] floating enable
 for_window [instance="^Godot_Engine$" class="Godot"] floating enable
 # for_window [class="Godot"] floating enable
+for_window [class="TelegramDesktop"] floating enable
+for_window [instance="^Media viewer$" class="TelegramDesktop"] floating disable
+for_window [instance="^Media viewer$" class="TelegramDesktop"] fullscreen enable
 
 focus_follows_mouse no
 
