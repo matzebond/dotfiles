@@ -98,7 +98,7 @@ bindsym $mod+Shift+p focus parent
 bindsym $mod+c focus child
 
 # needs i3lock-blur
-bindsym $mod+Escape exec i3lock -f
+bindsym $mod+Escape exec i3lock -f -n
 
 bindsym $mod+p exec ~/scripts/screenshot.sh
 
