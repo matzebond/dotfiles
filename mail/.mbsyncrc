@@ -16,6 +16,7 @@ Inbox ~/.mail/posteo/Inbox
 Channel posteo
 Master :posteo-remote:
 Slave :posteo-local:
+Pattern *
 Create Both
 SyncState *
 
@@ -36,5 +37,6 @@ Inbox ~/.mail/uni/Inbox
 Channel uni
 Master :uni-remote:
 Slave :uni-local:
+Pattern *
 Create Both
 SyncState *
