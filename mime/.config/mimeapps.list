@@ -78,6 +78,8 @@ audio/ac3=mpv.desktop;
 audio/flac=mpv.desktop;
 audio/mp4=mpv.desktop;
 application/x-iwork-keynote-sffkey=emacs.desktop;
+application/pdf=evince.desktop;
+application/x-bibtex=emacs.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox.desktop
@@ -156,4 +158,5 @@ audio/ac3=mpv.desktop
 audio/flac=mpv.desktop
 audio/mp4=mpv.desktop
 audio/x-opus+ogg=mpv.desktop
-inode/directory=org.gnome.Nautilus.desktop;
+inode/directory=pcmanfm.desktop
+application/pdf=evince.desktop
