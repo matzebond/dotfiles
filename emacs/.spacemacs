@@ -556,6 +556,8 @@ before packages are loaded."
         org-caldav-inbox "~/org/cal.org"
         org-icalendar-timezone "Europe/Berlin")
 
+  ;; org-caldav-save-directory for the org-caldav sync state
+
 
   (defun evil-commentary/ensure-in-comment-block (beg end forward)
     (save-excursion
