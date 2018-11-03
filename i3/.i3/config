@@ -22,6 +22,9 @@ for_window [instance="^Godot_Engine$" class="Godot"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [instance="^Media viewer$" class="TelegramDesktop"] floating disable
 for_window [instance="^Media viewer$" class="TelegramDesktop"] fullscreen enable
+for_window [title="^pdfpc - present" ] border none floating enable
+
+assign [class="Emacs"] 2
 
 focus_follows_mouse no
 
@@ -273,6 +276,6 @@ exec --no-startup-id udiskie -A -s
 exec --no-startup-id redshift
 
 # start a few common applications in their workspaces
-exec i3-msg 'workspace $WS1; exec /usr/bin/termite'
+exec i3-msg 'workspace $WS1; exec termite'
 exec i3-msg 'workspace $WS2; exec ~/scripts/emacsclient.sh'
-exec i3-msg 'workspace $WS3; exec /usr/bin/firefox; layout tabbed'
+exec i3-msg 'workspace $WS3; layout tabbed; exec "sleep 1 && firefox && sleep 1"; layout tabbed'
