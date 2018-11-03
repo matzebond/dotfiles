@@ -228,22 +228,20 @@ label = %percentage_used%%
 [module/wlan]
 type = internal/network
 interface = wlp3s0
-interval = 3.0
+interval = 15
 
-; format-connected = <ramp-signal> <label-connected>
 format-connected = " <label-connected>"
-; formal-connected-prefix = " "
 format-connected-underline = #9f78e1
-format-disconnected-underline = ${self.format-connected-underline}
-
 label-connected = %signal%% %essid:0:14:…%
+
+format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname%
 label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
 interface = enp0s31f6
-interval = 3.0
+interval = 15
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
@@ -257,25 +255,25 @@ label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
-interval = 30
+interval = 60
 format = <label>
+label = %date%
 date = %a %b %d
 
 format-prefix = " "
 format-underline = #0a6cf5
 
-label = %date%
 
 [module/time]
 type = internal/date
 interval = 5
 format = <label>
+label = %time%
 time =  %H:%M
 
 format-prefix = " "
 format-underline = #0a6cf5
 
-label = %time%
 
 [module/volume]
 type = internal/pulseaudio
