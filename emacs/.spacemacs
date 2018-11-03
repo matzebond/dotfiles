@@ -101,6 +101,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-additional-packages '(
                                       evil-collection
                                       seoul256-theme
+                                      org-caldav
                                       evil-matchit
                                       nvm
                                       )
@@ -549,6 +550,12 @@ before packages are loaded."
 
   (add-to-list 'auto-mode-alist '("PKGBUILD\\'" . shell-script-mode))
   ;; (add-to-list 'auto-mode-alist '("install\\'" . shell-script-mode))
+
+  (setq org-caldav-url "https://posteo.de:8443/calendars/male.schmitt"
+        org-caldav-calendar-id "default"
+        org-caldav-inbox "~/org/cal.org"
+        org-icalendar-timezone "Europe/Berlin")
+
 
   (defun evil-commentary/ensure-in-comment-block (beg end forward)
     (save-excursion
