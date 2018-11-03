@@ -28,7 +28,7 @@ focus_follows_mouse no
 bindsym $mod+i exec "i3-input -F '%s'"
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+s reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
@@ -95,12 +95,13 @@ bindsym $mod+Shift+space floating toggle
 # focus the parent container
 bindsym $mod+Shift+p focus parent
 # focus the child container
-bindsym $mod+c focus child
+bindsym $mod+Shift+c focus child
 
 # needs i3lock-blur
 bindsym $mod+Escape exec i3lock -f -n
 
 bindsym $mod+p exec ~/scripts/screenshot.sh
+bindsym $mod+c exec sh -c "maim -i \$(xdotool getactivewindow) | xclip -selection clipboard -t image/png"
 
 bindcode $mod+Shift+48 exec ~/scripts/rofi_xkb.sh
 
