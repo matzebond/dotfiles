@@ -1,23 +1,31 @@
 [user]
-	name = Matthias Schmitt
-	email = male.schmitt@posteo.de
+    name = Matthias Schmitt
+    email = male.schmitt@posteo.de
 [color]
-	ui = auto
+    ui = auto
 [push]
-	default = simple
-	followTags = true
+    default = simple
+    followTags = true
 [color]
-	ui = auto
+    ui = auto
 [core]
-	autocrlf = input
+    safecrlf = true
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [alias]
-	unstage = reset HEAD --
-	last = log -1 HEAD
-	branch-graph = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset%n' --abbrev-commit --date=relative --branches
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    tree = log --graph --pretty=graph --date=relative --branches
+    graph = log --graph --pretty=graphy --date=relative --branches
+[format]
+    pretty = graphy
+[pretty]
+    # short commit hash - branch info - commit msg - (date)
+    graph = %h %d %s %Cgreen(%cd)%Creset
+    # short commit hash - branch info - commit msg - (date) - <author>
+    graphy = %C(auto)%h %d %s%Creset %Cgreen(%cd) %C(bold blue)<%an>%Creset
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
+    clean = git-lfs clean -- %f
