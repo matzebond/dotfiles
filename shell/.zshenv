@@ -10,8 +10,10 @@ export BROWSER="/usr/bin/firefox"
 
 export PATH=$PATH:$HOME/.local/bin
 
-export PATH=$PATH:$HOME/.cargo/bin
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+if [ -x "$(command -v rustc)" ]; then
+     export PATH=$PATH:$HOME/.cargo/bin
+     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
 
 export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
 # export ANDROID_HOME='/opt/android-sdk'
