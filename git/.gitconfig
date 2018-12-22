@@ -13,6 +13,7 @@
 [merge]
     tool = vimdiff
 [alias]
+    discard = checkout HEAD --
     unstage = reset HEAD --
     last = log -1 HEAD
     tree = log --graph --pretty=graph --date=relative --branches
