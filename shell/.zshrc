@@ -1,12 +1,12 @@
+# for profiling
+# zmodload zsh/zprof
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -28,7 +28,7 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/maschm/.oh-my-zsh
+export ZSH=/home/maschm/.zplug/repos/robbyrussell/oh-my-zsh
 
 
 # Install zplug
@@ -42,6 +42,8 @@ source ~/.zplug/init.zsh
 zplug "zplug/zplug", hook-build:'zplug --self-manage'
 
 zplug "robbyrussell/oh-my-zsh", use:'lib/*', ignore:'*theme*'
+
+zplug "mafredri/zsh-async", from:github
 
 zplug "rupa/z", use:z.sh
 zplug "zsh-users/zsh-syntax-highlighting", defer:3
@@ -65,10 +67,11 @@ zplug "1ambda/zsh-snippets"
 # zplug 'zaari/pieni', as:theme
 # zplug 'miekg/lean'
 # zplug "nojhan/liquidprompt"
+# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+
+AGKOZAK_MULTILINE=0
 zplug "agkozak/agkozak-zsh-theme", defer:1
 
-# zplug mafredri/zsh-async, from:github
-# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
 
 # Install plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
