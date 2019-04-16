@@ -17,8 +17,8 @@ text/plain=emacs.desktop;emacsclient.desktop;org.gnome.gedit.desktop;
 application/x-yaml=emacsclient.desktop;emacs.desktop;
 application/x-desktop=emacs.desktop;org.gnome.gedit.desktop;emacsclient.desktop;
 application/x-java-archive=org.gnome.FileRoller.desktop;
-image/png=gimp.desktop;
-application/octet-stream=evince.desktop;org.gnome.gedit.desktop;emacs.desktop;emacsclient.desktop;
+image/png=nomacs.desktop;gimp.desktop;
+application/octet-stream=org.gnome.Evince.desktop;org.gnome.gedit.desktop;emacs.desktop;emacsclient.desktop;
 audio/x-mpegurl=emacsclient.desktop;mpv.desktop;
 audio/wav=mpv.desktop;
 video/x-msvideo=mpv.desktop;
@@ -78,7 +78,7 @@ audio/ac3=mpv.desktop;
 audio/flac=mpv.desktop;
 audio/mp4=mpv.desktop;
 application/x-iwork-keynote-sffkey=emacs.desktop;
-application/pdf=evince.desktop;
+application/pdf=org.gnome.Evince.desktop;evince.desktop;
 application/x-bibtex=emacs.desktop;
 
 [Default Applications]
@@ -159,4 +159,4 @@ audio/flac=mpv.desktop
 audio/mp4=mpv.desktop
 audio/x-opus+ogg=mpv.desktop
 inode/directory=pcmanfm.desktop
-application/pdf=evince.desktop
+application/pdf=org.gnome.Evince.desktop
