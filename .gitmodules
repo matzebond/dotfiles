@@ -7,4 +7,4 @@
 	branch = develop
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
-	url = git@github.com:matzebond/dotemacs.git
+	url = https://github.com/matzebond/dotemacs.git
