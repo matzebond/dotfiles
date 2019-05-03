@@ -8,6 +8,8 @@ export VISUAL='emacsclient'
 # export ALTERNATIVE_EDITOR='vim'
 export BROWSER="/usr/bin/firefox"
 
+export MAILDIR="$HOME/.mail"
+
 export PATH=$PATH:$HOME/.local/bin
 
 if [ -x "$(command -v rustc)" ]; then
