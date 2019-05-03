@@ -1,10 +1,10 @@
 [submodule "vim/.vim"]
 	path = vim/.vim
-	url = https://github.com/matzebond/dotvim.git
+	url = git@github.com:matzebond/dotvim.git
 [submodule "emacs/.emacs.d.old"]
 	path = emacs/.emacs.d.old
 	url = https://github.com/syl20bnr/spacemacs.git
 	branch = develop
 [submodule "emacs/.emacs.d"]
 	path = emacs/.emacs.d
-	url = https://github.com/matzebond/dotemacs.git
+	url = git@github.com:matzebond/dotemacs.git
