@@ -4,7 +4,8 @@ IMAPStore posteo-remote
 Host posteo.de
 Port 143
 User male.schmitt@posteo.de
-PassCmd "gpg --quiet --for-your-eyes-only --no-tty -d ~/.config/mail/posteo_pass.gpg"
+# PassCmd "gpg --quiet --for-your-eyes-only --no-tty -d ~/.config/mail/posteo_pass.gpg"
+PassCmd "echo ${PASSWORD:-$(gpg --no-tty -qd ~/.authinfo.gpg | sed -n 's,^machine posteo.de .*password \\([^ ]*\\).*,\\1,p')}"
 SSLType STARTTLS
 
 MaildirStore posteo-local
@@ -24,7 +25,8 @@ IMAPStore uni-remote
 Host imap.kit.edu
 Port 993
 User uydvo@student.kit.edu
-PassCmd "gpg --quiet --for-your-eyes-only --no-tty -d ~/.config/mail/uni_pass.gpg"
+# PassCmd "gpg --quiet --for-your-eyes-only --no-tty -d ~/.config/mail/uni_pass.gpg"
+PassCmd "echo ${PASSWORD:-$(gpg --no-tty -qd ~/.authinfo.gpg | sed -n 's,^machine smtp.kit.edu .*password \\([^ ]*\\).*,\\1,p')}"
 SSLType IMAPS
 AuthMech LOGIN
 
