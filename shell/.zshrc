@@ -86,6 +86,8 @@ zplug load
 
 autoload -U zmv
 
+setopt dotglob
+
 setopt HIST_IGNORE_ALL_DUPS
 
 HISTSIZE=10000

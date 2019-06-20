@@ -12,7 +12,7 @@ export MAILDIR="$HOME/.mail"
 
 export PATH=$PATH:$HOME/.local/bin
 
-if [ -x "$(command -v rustc)" ]; then
+if [[ $(command -v rustc) == "" ]]; then
      export PATH=$PATH:$HOME/.cargo/bin
      export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
@@ -25,7 +25,7 @@ export NVM_DIR="/home/maschm/.nvm"
 export PATH=$PATH:$HOME"/.node_modules/bin"
 export npm_config_prefix=~/.node_modules
 
-if [ -x "$(command -v ruby)" ]; then
+if [[ $(command -v ruby) == "" ]]; then
     export RUBY_GEM_PATH="$(ruby -e 'print Gem.user_dir')/bin"
     export PATH=$PATH:$RUBY_GEM_PATH
 fi
