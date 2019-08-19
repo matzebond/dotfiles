@@ -266,3 +266,36 @@ rofi.color-window:                   argb:f22d303b, #7c8389, #1d1f21
 ! rofi.me-accept-entry:                MouseD1
 ! "Accept hovered row with custom action" Set from: Default
 ! rofi.me-accept-custom:               Control+MouseD1
+
+
+! copied  from termite config
+urxvt.font : xft:Hack:size=11
+urxvt.background : #202020
+urxvt.foreground : #c0c0c0
+urxvt.color0 : #4e4e4e
+urxvt.color1 : #d68787 
+urxvt.color2 : #5f865f
+urxvt.color3 : #d8af5f
+urxvt.color4 : #85add4
+urxvt.color5 : #d7afaf
+urxvt.color6 : #87afaf
+urxvt.color7 : #d0d0d0
+urxvt.color8 : #626262
+urxvt.color9 : #d75f87
+urxvt.color10 : #87af87
+urxvt.color11 : #ffd787
+urxvt.color12 : #add4fb
+urxvt.color13 : #ffafaf
+urxvt.color14 : #87d7d7
+urxvt.color15 : #e4e4e4
+urxvt.cursorColor : #d0d0d0
+urxvt.cursorColor2 : #3a3a3a
+urxvt.colorBD : #e4e4e4
+! urxvt.scrollstyle: next
+urxvt.scrollBar: False
+urxvt.scrollTtyOutput: False
+urxvt.scrollTtyKeypress: True
+urxvt.secondaryScreen: 1
+urxvt.secondaryScroll: 0
+urxvt.secondaryWheel: 1
+
