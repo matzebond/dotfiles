@@ -1,0 +1,13 @@
+* Setup
+
+Install sway and sway tools
+
+#+BEGIN_SRC sh
+packman -S sway sway swaybg swayidle swaylock swaymsg swaynag
+#+END_SRC
+
+Install other tools
+
+#+BEGIN_SRC sh
+packman -S waybar light mako slurp grim wl-clipboard
+#+END_SRC
