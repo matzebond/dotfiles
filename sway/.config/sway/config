@@ -312,7 +312,20 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #323232 #323232 #5c5c5c
 #     }
 # }
+
+# per application settings
 #
+
+for_window [class="keepassxc"] floating enable
+for_window [instance="^Godot_Engine$" class="Godot"] floating enable
+for_window [class="TelegramDesktop"] floating enable
+for_window [instance="^Media viewer$" class="TelegramDesktop"] floating disable
+for_window [instance="^Media viewer$" class="TelegramDesktop"] fullscreen enable
+for_window [title="^pdfpc - present" ] border none floating enable
+
+assign [class="Emacs"] 2
+
+
 # Start-up application:
 #
 # exec --no-startup-id twmnd
