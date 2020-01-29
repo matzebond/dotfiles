@@ -6,6 +6,7 @@ Type=forking
 ExecStart=/usr/bin/emacs --daemon
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
 Restart=on-abnormal
+TimeoutStartSec=10min
 
 [Install]
 WantedBy=default.target
