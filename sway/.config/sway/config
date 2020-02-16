@@ -328,12 +328,10 @@ assign [class="Emacs"] 2
 
 # Start-up application:
 #
-# exec --no-startup-id twmnd
 exec --no-startup-id udiskie -A -s
-# exec --no-startup-id redshift
 
 # toogle redshift color adjustment
-# bindsym $mod+Ctrl+r exec pkill -USR1 redshift
+bindsym $mod+Ctrl+r exec pkill -USR1 redshift
 
 #keepassXC autotype
 #bindsym $mod+q nop

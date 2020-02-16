@@ -1,0 +1,11 @@
+[Unit]
+Description=Redshift display colour temperature adjustment for wayland
+Documentation=http://jonls.dk/redshift/
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/redshift -m wayland
+Restart=always
+
+[Install]
+WantedBy=default.target
