@@ -16,7 +16,7 @@ default_floating_border normal
 for_window [floating] border normal
 hide_edge_borders smart
 
-for_window [class="keepassxc"] floating enable
+for_window [class="KeePassXC"] floating enable
 for_window [instance="^Godot_Engine$" class="Godot"] floating enable
 # for_window [class="Godot"] floating enable
 for_window [class="TelegramDesktop"] floating enable

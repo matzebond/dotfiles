@@ -316,7 +316,7 @@ bindsym $mod+r mode "resize"
 # per application settings
 #
 
-for_window [class="keepassxc"] floating enable
+for_window [class="KeePassXC"] floating enable
 for_window [instance="^Godot_Engine$" class="Godot"] floating enable
 for_window [class="TelegramDesktop"] floating enable
 for_window [instance="^Media viewer$" class="TelegramDesktop"] floating disable

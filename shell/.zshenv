@@ -29,3 +29,5 @@ if [[ $(command -v ruby) == "" ]]; then
     export RUBY_GEM_PATH="$(ruby -e 'print Gem.user_dir')/bin"
     export PATH=$PATH:$RUBY_GEM_PATH
 fi
+
+MOZ_ENABLE_WAYLAND=1
