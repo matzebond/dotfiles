@@ -316,14 +316,28 @@ bindsym $mod+r mode "resize"
 # per application settings
 #
 
-for_window [class="KeePassXC"] floating enable
+for_window [app_id="org.keepassxc.KeePassXC"] {
+	   floating enable
+	   move scratchpad
+	   [app_id="org.keepassxc.KeePassXC"] scratchpad show
+}
+# for_window [class="TelegramDesktop"]  use class for xwayland
+for_window [app_id="telegramdesktop"] {
+	   floating enable
+	   move scratchpad
+	   resize set 1000 800
+	   [app_id="telegramdesktop"] scratchpad show
+}
+for_window [instance="^Media viewer$" class="TelegramDesktop"] {
+	   floating disable
+	   fullscreen enable
+}
 for_window [instance="^Godot_Engine$" class="Godot"] floating enable
-for_window [class="TelegramDesktop"] floating enable
-for_window [instance="^Media viewer$" class="TelegramDesktop"] floating disable
-for_window [instance="^Media viewer$" class="TelegramDesktop"] fullscreen enable
 for_window [title="^pdfpc - present" ] border none floating enable
 
 assign [class="Emacs"] 2
+
+for_window [app_id="firefox"] inhibit_idle fullscreen
 
 
 # Start-up application:
