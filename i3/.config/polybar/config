@@ -21,7 +21,8 @@ margin-top = 0
 margin-bottom = 0
 
 [bar/main]
-monitor = ${env:MONITOR:HDMI-0}
+; monitor = ${env:MONITOR:HDMI-0}
+monitor = ${env:MONITOR:eDP1}
 width = 100%
 height = 23
 offset-x = 0
@@ -49,11 +50,14 @@ module-margin-right = 1
 seperator = "|"
 
 font-0 = Hack:size=10
-font-1 = FontAwesome:size=10
+font-1 = Font Awesome 5 Free:size=10
+font-2 = Font Awesome 5 Free Solid:style=Solid
+font-3 = Font Awesome 5 Free Regular:style=Regular
+font-4 = Font Awesome 5 Brands Regular:style=Regular
 
 modules-left = i3 mpd
 modules-center = xwindow i3close
-modules-right = i3menu xbacklight volume wlan eth battery date time
+modules-right = i3menu backlight-acpi volume wlan eth battery date time
 ; filesystem
 
 tray-position = right
@@ -189,6 +193,7 @@ toggle-off-foreground = #66
 
 [module/xbacklight]
 type = internal/xbacklight
+monitor = ${env:MONITOR:eDP1}
 
 format = <label>
 label = " %percentage%%"
@@ -203,6 +208,8 @@ bar-fill-foreground = #9f78e1
 bar-empty = ─
 bar-empty-font = 2
 bar-empty-foreground = ${colors.foreground-alt}
+
+enable-scroll = true
 
 [module/backlight-acpi]
 inherit = module/xbacklight
