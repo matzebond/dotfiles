@@ -230,8 +230,8 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioStop exec playerctl stop
 
 # Screen brightness controls (brightness up, brightness down)
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 && pkill -SIGRTMIN+2 i3blocks
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 && pkill -SIGRTMIN+2 i3blocks
+bindsym XF86MonBrightnessUp exec light -A 10 && pkill -SIGRTMIN+2 i3blocks
+bindsym XF86MonBrightnessDown exec light -U 10 && pkill -SIGRTMIN+2 i3blocks
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
