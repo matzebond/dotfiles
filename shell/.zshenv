@@ -30,4 +30,7 @@ if [[ $(command -v ruby) == "" ]]; then
     export PATH=$PATH:$RUBY_GEM_PATH
 fi
 
-MOZ_ENABLE_WAYLAND=1
+# only for wayland
+# export MOZ_ENABLE_WAYLAND=1
+# export QT_QPA_PLATFORM=wayland
+# export GDK_BACKEND
