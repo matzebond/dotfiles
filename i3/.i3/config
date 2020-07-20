@@ -274,8 +274,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec --no-startup-id twmnd
 exec --no-startup-id udiskie -A -s
 exec --no-startup-id redshift
+exec --no-startup-id xss-lock -- i3lock -f
 
 # start a few common applications in their workspaces
 exec i3-msg 'workspace $WS1; exec termite'
 exec i3-msg 'workspace $WS2; exec ~/scripts/emacsclient.sh'
-exec i3-msg 'workspace $WS3; layout tabbed; exec "sleep 1 && firefox && sleep 1"; layout tabbed'
+exec i3-msg 'workspace $WS3; layout tabbed; exec "sleep 1 && firefox"; layout tabbed'
