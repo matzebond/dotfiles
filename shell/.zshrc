@@ -62,6 +62,7 @@ zplug "plugins/shrink-path", from:oh-my-zsh
 zplug "1ambda/zsh-snippets"
 # zplug "willghatch/zsh-snippets"
 
+zplug "hlissner/zsh-autopair", defer:2
 # zplug 'dracula/zsh', as:theme
 # zstyle :prompt:shrink_path fish yes
 # zplug 'zaari/pieni', as:theme
