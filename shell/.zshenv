@@ -12,7 +12,7 @@ export MAILDIR="$HOME/.mail"
 
 export PATH=$PATH:$HOME/.local/bin
 
-if [[ $(command -v rustc) == "" ]]; then
+if command -v rustc &> /dev/null ; then
      export PATH=$PATH:$HOME/.cargo/bin
      export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
@@ -21,11 +21,13 @@ export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
 # export ANDROID_HOME='/opt/android-sdk'
 # export PATH=$PATH:$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
-export NVM_DIR="/home/maschm/.nvm"
-export PATH=$PATH:$HOME"/.node_modules/bin"
-export npm_config_prefix=~/.node_modules
+if command -v node &> /dev/null ; then
+    export NVM_DIR="/home/maschm/.nvm"
+    export PATH=$PATH:$HOME"/.node_modules/bin"
+    export npm_config_prefix=~/.node_modules
+fi
 
-if [[ $(command -v ruby) == "" ]]; then
+if command -v ruby &> /dev/null; then
     export RUBY_GEM_PATH="$(ruby -e 'print Gem.user_dir')/bin"
     export PATH=$PATH:$RUBY_GEM_PATH
 fi
