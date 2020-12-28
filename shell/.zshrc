@@ -1,6 +1,8 @@
 # for profiling
 # zmodload zsh/zprof
 
+fpath+=~/.zfunc
+
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -105,7 +107,7 @@ setopt extendedglob
 export TERM=xterm-256color
 export LESS=-r
 
-alias ls='ls --group-directories-first --color=auto'
+alias ls='ls -v --group-directories-first --color=auto'
 alias l='ls -Alh'
 alias ll='ls -alh'
 alias cp='cp -i'
@@ -141,6 +143,7 @@ bindkey '^S' zsh-snippets-widget-expand
 alias -g H='| head'
 alias -g T='| tail'
 alias -g L='| less'
+alias -g LE=' 2>&1 | less'
 alias -g G='| grep'
 alias -g WC='| wc'
 alias -g NUL='> /dev/null 2>&1'
@@ -151,7 +154,7 @@ bindkey "^[[1;3D" backward-word
 bindkey "^[[3;5~" kill-word
 bindkey "^[[3;3~" kill-word
 
-WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
 
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
