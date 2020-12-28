@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Copyright carnager at https://github.com/carnager/rofi-scripts
+# adapted from https://github.com/davatorium/rofi-scripts/blob/master/monitor_layout.sh
 
 XRANDR=$(which xrandr)
 
@@ -61,7 +61,7 @@ do
         then
             TILES[$index]="Dual Screen ${MONITORS[$entry_a]} -> ${MONITORS[$entry_b]}"
             COMMANDS[$index]="xrandr --output ${MONITORS[$entry_a]} --auto \
-                              --output ${MONITORS[$entry_b]} --auto --left-of ${MONITORS[$entry_a]}"
+                              --output ${MONITORS[$entry_b]} --auto --right-of ${MONITORS[$entry_a]}"
 
             index+=1
         fi
@@ -87,6 +87,10 @@ do
     done
 done
 
+# custom configs
+TILES[$index]="Home Laptop Dell"
+COMMANDS[$index]="xrandr --output eDP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output DP2 --off --output HDMI1 --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI2 --off --output VIRTUAL1 --off"
+index+=1
 
 ##
 #  Generate entries, where first is key.
@@ -97,10 +101,11 @@ function gen_entries()
     do
         echo $a ${TILES[a]}
     done
+
 }
 
 # Call menu
-SEL=$( gen_entries | rofi -dmenu -p "Monitor Setup:" -a 0 -no-custom  | awk '{print $1}' )
+SEL=$( gen_entries | rofi -dmenu -i -p "Monitor Setup:" -selected-row 1 -u 0 -no-custom  | awk '{print $1}' )
 
 # Call xrandr
 $( ${COMMANDS[$SEL]} )
