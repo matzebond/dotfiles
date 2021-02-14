@@ -8,4 +8,4 @@ ExecStart=/usr/bin/redshift -m wayland
 Restart=always
 
 [Install]
-WantedBy=default.target
+WantedBy=sway-session.target

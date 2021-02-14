@@ -1,0 +1,10 @@
+[Unit]
+Description=KDE Connect indicator
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/kdeconnect-indicator
+Restart=always
+
+[Install]
+WantedBy=i3-session.target

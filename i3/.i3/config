@@ -284,7 +284,8 @@ exec --no-startup-id twmnd
 exec --no-startup-id udiskie -A -s
 exec --no-startup-id redshift
 exec --no-startup-id xss-lock -- i3lock -f
-exec --no-startup-id kdeconnect-indicator
+
+exec "systemctl --user import-environment; systemctl --user start i3-session.target"
 
 # start a few common applications in their workspaces
 exec i3-msg 'workspace $WS1; exec termite'
