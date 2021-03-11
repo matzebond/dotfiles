@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=Emacsclient for mail
+GenericName=Mail Text Editor
+Comment=View and edit files
+MimeType=x-scheme-handler/mailto;
+Exec=sh -c "\$HOME/scripts/emacsmail.sh %u"
+Icon=/usr/share/icons/hicolor/scalable/apps/emacs.svg
+Type=Application
+Terminal=false
+Categories=Utility;

@@ -160,3 +160,4 @@ audio/mp4=mpv.desktop
 audio/x-opus+ogg=mpv.desktop
 inode/directory=pcmanfm.desktop
 application/pdf=org.gnome.Evince.desktop
+x-scheme-handler/mailto=emacsmail.desktop
