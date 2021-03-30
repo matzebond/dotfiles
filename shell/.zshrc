@@ -104,7 +104,7 @@ setopt extendedglob
 # fi
 
 
-export TERM=xterm-256color
+#export TERM=xterm-256color
 export LESS=-r
 
 alias ls='ls -v --group-directories-first --color=auto'
@@ -160,6 +160,18 @@ WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
+
+
+case "$TERM" in
+"dumb")
+    PS1="> "
+    ;;
+xterm*|rxvt*|eterm*|screen*)
+    ;;
+*)
+    PS1="> "
+    ;;
+esac
 
 
 # fzf

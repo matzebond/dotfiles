@@ -18,8 +18,14 @@ if command -v rustc &> /dev/null ; then
 fi
 
 export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
-# export ANDROID_HOME='/opt/android-sdk'
+
+# done in /etc/profile.d/
+# export ANDROID_HOME='/opt/android-sdk' 
 # export PATH=$PATH:$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
+if command -v dart &> /dev/null; then
+    export DART_SDK="/opt/dart-sdk"
+fi
 
 if command -v node &> /dev/null ; then
     export NVM_DIR="/home/maschm/.nvm"
@@ -29,7 +35,9 @@ fi
 
 if command -v ruby &> /dev/null; then
     export RUBY_GEM_PATH="$(ruby -e 'print Gem.user_dir')/bin"
-    export PATH=$PATH:$RUBY_GEM_PATH
+    if [ -x $RUBY_GEM_PATH ]; then
+       export PATH=$PATH:$RUBY_GEM_PATH
+    fi
 fi
 
 # only for wayland
