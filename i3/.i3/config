@@ -16,13 +16,18 @@ default_floating_border normal
 for_window [floating] border normal
 hide_edge_borders smart
 
+
 for_window [class="KeePassXC"] floating enable
 for_window [instance="^Godot_Engine$" class="Godot"] floating enable
 # for_window [class="Godot"] floating enable
 for_window [class="TelegramDesktop"] floating enable
+for_window [class="Element"] floating enable
 for_window [instance="^Media viewer$" class="TelegramDesktop"] floating disable
 for_window [instance="^Media viewer$" class="TelegramDesktop"] fullscreen enable
 for_window [title="^pdfpc - present" ] border none floating enable
+for_window [class="blueman-manager"] floating enable
+for_window [instance="Bluetooth Devices"] floating enable
+
 
 assign [class="Emacs"] 2
 
@@ -289,5 +294,5 @@ exec "systemctl --user import-environment; systemctl --user start i3-session.tar
 
 # start a few common applications in their workspaces
 exec i3-msg 'workspace $WS1; exec termite'
-exec i3-msg 'workspace $WS2; exec ~/scripts/emacsclient.sh'
-exec i3-msg 'workspace $WS3; layout tabbed; exec "sleep 1 && firefox"; layout tabbed'
+# exec i3-msg 'workspace $WS2; exec ~/scripts/emacsclient.sh'
+# exec i3-msg 'workspace $WS3; layout tabbed; exec "sleep 1 && firefox"; layout tabbed'
