@@ -41,6 +41,7 @@ if command -v ruby &> /dev/null; then
 fi
 
 # only for wayland
-# export MOZ_ENABLE_WAYLAND=1
-# export QT_QPA_PLATFORM=wayland
+export MOZ_ENABLE_WAYLAND=1
+export QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORMTHEME=qt5ct
 # export GDK_BACKEND

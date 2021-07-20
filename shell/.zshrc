@@ -92,6 +92,7 @@ autoload -U zmv
 setopt dotglob
 
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
 
 HISTSIZE=10000
 SAVEHIST=10000
