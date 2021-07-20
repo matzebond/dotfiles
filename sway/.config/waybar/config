@@ -5,7 +5,7 @@
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
-    "modules-center": ["sway/window"],
+    "modules-center": ["sway/window", "custom/swaykill"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "backlight", "battery", "clock", "tray"],
     // Modules configuration
     // "sway/workspaces": {
@@ -25,6 +25,12 @@
     // },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
+    },
+    "custom/swaykill": {
+        "format": "[X]",
+        "tooltip": false,
+        "tooltip-format": "kills the focused window",
+        "on-click": "swaymsg kill",
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
@@ -64,9 +70,10 @@
         "spacing": 10
     },
     "clock": {
-        "format": "{:%H:%M - %Y-%m-%d}"
+        "format": "{:%H:%M - %Y-%m-%d}",
         // "tooltip-format": "{:%Y-%m-%d | %H:%M}",
         // "format-alt": "{:%Y-%m-%d}"
+        "on-click": "emacsclient -e '(maschm/show-calendar)'; swaymsg workspace 2",
     },
     "cpu": {
         "format": "{usage}% ",
@@ -87,9 +94,10 @@
         // "device": "acpi_video1",
         "format": "{icon} {percent}%",
         "format-icons": [""],
-	"on-scroll-up":"light -A 5",
-	"on-scroll-down":"light -U 5",
-	"smooth-scrolling-threshold": 5
+        "on-scroll-up":"light -A 5",
+        "on-scroll-down":"light -U 5",
+        "smooth-scrolling-threshold": 5,
+        "on-click-right": "pkill -USR1 redshift",
     },
     "battery": {
         "states": {
@@ -131,9 +139,9 @@
             "default": ["", "", ""]
         },
         "on-click": "pavucontrol",
-	"on-click-right": "amixer -q set Master toggle",
-	"on-scroll-up": "amixer -q set Master 5%+",
-	"on-scroll-down": "amixer -q set Master 5%-"
+        "on-click-right": "amixer -q set Master toggle",
+        "on-scroll-up": "amixer -q set Master 5%+",
+        "on-scroll-down": "amixer -q set Master 5%-"
     },
     "custom/media": {
         "format": "{icon} {}",
