@@ -13,8 +13,6 @@ NUM_MONITORS=${#MONITORS[@]}
 
 NUM_MONITORS_ALL=${#MONITORS_ALL[@]}
 
-TILES=()
-COMMANDS=()
 
 
 function gen_xrandr_only()
@@ -35,6 +33,9 @@ function gen_xrandr_only()
 }
 
 
+
+TILES=()
+COMMANDS=()
 
 declare -i index=0
 TILES[$index]="Cancel"
