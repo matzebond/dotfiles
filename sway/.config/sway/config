@@ -319,23 +319,37 @@ bindsym $mod+r mode "resize"
 #
 
 for_window [app_id="org.keepassxc.KeePassXC"] {
-	   floating enable
-	   move scratchpad
-	   [app_id="org.keepassxc.KeePassXC"] scratchpad show
+    floating enable
+    move scratchpad
+    [app_id="org.keepassxc.KeePassXC"] scratchpad show
 }
 # for_window [class="TelegramDesktop"]  use class for xwayland
 for_window [app_id="telegramdesktop"] {
-	   floating enable
-	   move scratchpad
-	   resize set 1000 800
-	   [app_id="telegramdesktop"] scratchpad show
+    floating enable
+    fullscreen enable
+    # move scratchpad
+    # resize set 1000 800
+    # [app_id="telegramdesktop"] scratchpad show
 }
 for_window [instance="^Media viewer$" class="TelegramDesktop"] {
-	   floating disable
-	   fullscreen enable
+    floating disable
+    fullscreen enable
 }
 for_window [instance="^Godot_Engine$" class="Godot"] floating enable
-for_window [title="^pdfpc - present" ] border none floating enable
+for_window [title="^pdfpc - present" ] {
+    border none
+    floating enable
+}
+
+for_window [instance="element"] {
+    floating enable
+    resize set width 1200 height 800
+    move scratchpad
+    [instance="element"] scratchpad show
+}
+
+for_window [app_id="blueman-manager"] floating enable
+for_window [app_id="pavucontrol"] floating enable
 
 assign [class="Emacs"] 2
 
