@@ -272,6 +272,11 @@ input type:touchpad {
     bindsym --locked XF86AudioNext exec playerctl next
     bindsym --locked XF86AudioPrev exec playerctl previous
     bindsym --locked XF86AudioStop exec playerctl stop
+    # repurpus keys on thinktop
+    bindsym --locked XF86Tools exec playerctl previous
+    bindsym --locked XF86Search exec playerctl play-pause
+    bindsym --locked XF86LaunchA exec playerctl next
+    bindsym --locked XF86Explorer exec playerctl stop
     # Screen brightness controls (brightness up, brightness down)
     bindsym XF86MonBrightnessUp exec light -A 5
     bindsym XF86MonBrightnessDown exec light -U 5
