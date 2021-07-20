@@ -55,7 +55,7 @@ font-2 = Font Awesome 5 Free Solid:style=Solid
 font-3 = Font Awesome 5 Free Regular:style=Regular
 font-4 = Font Awesome 5 Brands Regular:style=Regular
 
-modules-left = i3 mpd
+modules-left = i3 ; playerctl
 modules-center = xwindow i3close
 modules-right = i3menu backlight-acpi volume wlan eth battery date time
 ; filesystem
@@ -385,7 +385,7 @@ type = custom/menu
 
 label-open = i3
 label-separator = |
-expand-right = left
+expand-right = false
 
 menu-0-0 = "Kill Window"
 menu-0-0-exec = i3-msg kill
@@ -397,5 +397,20 @@ menu-0-2-exec = i3-msg "scratchpad show"
 scroll-up = i3-msg "scratchpad show"
 scroll-down = i3-msg "scratchpad show"
 
+[module/playerctl]
+type = custom/menu
+
+label-open = 
+label-separator = |
+expand-right = true
+
+menu-0-0 = "/"
+menu-0-0-exec = playerctl play-pause
+menu-0-1 = ""
+menu-0-1-exec = playerctl -a stop
+menu-0-2 = ""
+menu-0-2-exec = playerctl previous
+menu-0-3 = ""
+menu-0-3-exec = playerctl next
 
 ; vim:ft=dosini
