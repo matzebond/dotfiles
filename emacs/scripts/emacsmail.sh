@@ -2,7 +2,7 @@
 
 emacsclient -n -e "(if (> (length (frame-list)) 1) 't)" | grep t
 if [ "$?" = "1" ]; then
-    emacsclient -c -n -a "" --eval "(browse-url-mail \"$@\")"
+    emacsclient -c -n --eval "(progn (x-focus-frame nil)(browse-url-mail \"$@\"))"
 else
-    emacsclient -n -a "" --eval "(browse-url-mail \"$@\")"
+    emacsclient -n --eval "(progn (x-focus-frame nil)(browse-url-mail \"$@\"))"
 fi
