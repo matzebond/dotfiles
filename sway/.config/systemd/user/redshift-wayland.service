@@ -4,7 +4,7 @@ Documentation=http://jonls.dk/redshift/
 PartOf=graphical-session.target
 
 [Service]
-ExecStart=/usr/bin/redshift -m wayland
+ExecStart=/usr/bin/redshift -m wayland -v
 Restart=always
 
 [Install]

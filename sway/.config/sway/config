@@ -54,7 +54,12 @@ input type:touchpad {
     dwt enabled
     tap enabled
     natural_scroll disabled
+    scroll_method two_finger
     middle_emulation enabled
+}
+input type:tablet_pad {
+    tool_mode * absolute
+    map_to_output $laptop
 }
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -167,6 +172,7 @@ input type:touchpad {
     bindsym $mod+8 workspace 8
     bindsym $mod+9 workspace 9
     bindsym $mod+0 workspace 10
+    workspace_auto_back_and_forth yes
     # move focused container to workspace
     bindsym $mod+Shift+1 move container to workspace 1
     bindsym $mod+Shift+2 move container to workspace 2
