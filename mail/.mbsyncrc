@@ -15,8 +15,8 @@ Path ~/.mail/posteo/
 Inbox ~/.mail/posteo/Inbox
 
 Channel posteo
-Master :posteo-remote:
-Slave :posteo-local:
+Far :posteo-remote:
+Near :posteo-local:
 Pattern *
 Create Both
 SyncState *
@@ -37,8 +37,8 @@ Path ~/.mail/uni/
 Inbox ~/.mail/uni/Inbox
 
 Channel uni
-Master :uni-remote:
-Slave :uni-local:
+Far :uni-remote:
+Near :uni-local:
 Pattern *
 Create Both
 SyncState *
