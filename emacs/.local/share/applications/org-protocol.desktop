@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Org-Protocol
+Exec=emacsclient %u
+Exec=sh -c "\$HOME/scripts/emacsclient.sh %F"
+Icon=/usr/share/icons/hicolor/scalable/apps/emacs.svg
+Type=Application
+Terminal=false
+MimeType=x-scheme-handler/org-protocol
