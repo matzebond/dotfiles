@@ -3,6 +3,7 @@ Description=KDE Connect indicator
 PartOf=graphical-session.target
 
 [Service]
+ExecStartPre=/bin/sleep 10
 ExecStart=/usr/bin/kdeconnect-indicator
 Restart=always
 
