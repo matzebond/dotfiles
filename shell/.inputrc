@@ -1,4 +1,11 @@
+$include /etc/inputrc
+
 set bell-style none
 set completion-ignore-case on
 set completion-prefix-display-length 4
 set show-all-if-ambiguous on
+
+"\e[1;5D": backward-word
+"\e[1;5C": forward-word
+"\e[A": history-search-backward
+"\e[B": history-search-forward
