@@ -40,6 +40,8 @@ if command -v ruby &> /dev/null; then
     fi
 fi
 
+export CHROME_EXECUTABLE=/usr/bin/chromium
+
 # only for wayland
 # export MOZ_ENABLE_WAYLAND=1
 # export QT_QPA_PLATFORM=wayland

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=Netflix
+GenericName=Netflix video on-demand in chromium
+# Comment=Open Acestream links with VLC Media Player
+Exec=/usr/bin/chromium "https://netflix.com"
+TryExec=/usr/bin/chromium
+# TODO Icon=multimedia-vido-player
+Terminal=False
+Type=Application
+# MimeType=x-scheme-handler/acestream;
+# X-KDE-Protocols=acestream
+# NoDisplay=true
