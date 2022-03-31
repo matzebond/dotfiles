@@ -1,6 +1,7 @@
 # for profiling
 # zmodload zsh/zprof
 
+
 fpath+=~/.zfunc
 
 # Uncomment the following line to use case-sensitive completion.
@@ -30,62 +31,47 @@ COMPLETION_WAITING_DOTS="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/home/maschm/.zplug/repos/robbyrussell/oh-my-zsh
+export ZSH=/home/maschm/.zcomet/repos/ohmyzsh/ohmyzsh
 
-
-# Install zplug
-if [[ ! -d ~/.zplug ]]; then
-  git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh && zplug update --self
+# Clone zcomet if necessary
+if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
+  command git clone https://github.com/agkozak/zcomet.git ${ZDOTDIR:-${HOME}}/.zcomet/bin
 fi
-
-source ~/.zplug/init.zsh
-
-zplug "zplug/zplug", hook-build:'zplug --self-manage'
-
-zplug "robbyrussell/oh-my-zsh", use:'lib/*', ignore:'*theme*'
-
-zplug "mafredri/zsh-async", from:github
-
-zplug "rupa/z", use:z.sh
-zplug "zsh-users/zsh-syntax-highlighting", defer:3
-zplug "zsh-users/zsh-autosuggestions"
-
-zplug "junegunn/fzf-bin", \
-      from:gh-r, \
-      as:command, \
-      rename-to:fzf, \
-      use:"*linux*amd64*"
-zplug "andrewferrier/fzf-z", defer:1
-
-# zplug "djui/alias-tips"
-# zplug "changyuheng/zsh-interactive-cd", defer:1
-zplug "plugins/shrink-path", from:oh-my-zsh
-zplug "1ambda/zsh-snippets"
-# zplug "willghatch/zsh-snippets"
-
-zplug "hlissner/zsh-autopair", defer:2
-# zplug 'dracula/zsh', as:theme
-# zstyle :prompt:shrink_path fish yes
-# zplug 'zaari/pieni', as:theme
-# zplug 'miekg/lean'
-# zplug "nojhan/liquidprompt"
-# zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
 
 AGKOZAK_MULTILINE=0
-zplug "agkozak/agkozak-zsh-theme", defer:1
+
+zcomet load ohmyzsh lib compfix.zsh completion.zsh correction.zsh functions.zsh history.zsh key-bindings.zsh misc.zsh spectrum.zsh termsupport.zsh
+
+zcomet load mafredri/zsh-async async.zsh
+
+zcomet load agkozak/zsh-z
+
+zcomet load 1ambda/zsh-snippets
+# zcomet load willghatch/zsh-snippets
+
+zcomet load hlissner/zsh-autopair
 
 
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
+# fzf installed by pacman
+# zplug "junegunn/fzf", \
+#       from:gh-r, \
+#       as:command, \
+#       rename-to:fzf, \
+#       use:"*linux*amd64*"
+# zplug "andrewferrier/fzf-z", defer:1
 
-# Then, source plugins and add commands to $PATH
-zplug load
+# zplug "plugins/shrink-path", from:oh-my-zsh
+# zstyle :prompt:shrink_path fish yes
+
+# It is good to load these popular plugins last, and in this order:
+zcomet load zdharma-continuum/fast-syntax-highlighting
+zcomet load zsh-users/zsh-autosuggestions
+
+zcomet load agkozak/agkozak-zsh-prompt # needs to be after zsh-autosuggestions
+
+# Run compinit and compile its cache
+zcomet compinit
 
 autoload -U zmv
 
@@ -108,6 +94,7 @@ setopt extendedglob
 #export TERM=xterm-256color
 export LESS=-r
 
+alias ..='cd ..'
 alias ls='ls -v --group-directories-first --color=auto'
 alias l='ls -Alh'
 alias ll='ls -alh'
@@ -177,7 +164,10 @@ esac
 
 # fzf
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+[[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
+[ -f "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
 
 export FZF_DEFAULT_OPTS='--height 100% --reverse'
 
@@ -196,3 +186,7 @@ _fzf_compgen_dir() {
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+
+# for profiling
+# zprof
