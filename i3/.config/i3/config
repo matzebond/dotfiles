@@ -286,10 +286,8 @@ bindsym $mod+r mode "resize"
 
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id twmnd
 exec --no-startup-id udiskie -A -s
-exec --no-startup-id redshift
-exec --no-startup-id xss-lock -- i3lock -f
+exec --no-startup-id xss-lock -- i3lock -f -n
 
 exec "systemctl --user import-environment; systemctl --user start i3-session.target"
 

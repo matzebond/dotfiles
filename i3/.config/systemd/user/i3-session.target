@@ -3,4 +3,6 @@ Description=i3 compositor session
 Documentation=man:systemd.special(7)
 BindsTo=graphical-session.target
 Wants=graphical-session-pre.target
+Wants=twmnd.service
+Wants=redshift.service
 After=graphical-session-pre.target
