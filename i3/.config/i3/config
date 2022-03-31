@@ -120,6 +120,7 @@ bindsym $mod+c exec sh -c "maim -i \$(xdotool getactivewindow) | xclip -selectio
 
 bindcode $mod+Shift+48 exec ~/scripts/rofi_xkb.sh
 
+bindsym $mod+Shift+t exec rofi -show "ap" -modi "ap:~/scripts/audio_profile.sh"
 bindsym $mod+Shift+d exec ~/scripts/monitor_layout.sh
 bindsym $mod+Shift+s exec ~/scripts/rofi_surfraw.sh
 
