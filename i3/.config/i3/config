@@ -232,8 +232,8 @@ mode  $power_control {
 bindsym $mod+n mode $power_control
 
 # Audio controls (volume up, volume down, toggle mute)
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ && pkill -SIGRTMIN+10 i3blocks
-bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && pkill -SIGRTMIN+10 i3blocks
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && pkill -SIGRTMIN+10 i3blocks
 bindsym XF86AudioMute exec amixer -q set Master toggle && pkill -SIGRMIT+10 i3blocks
 # bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -SIGRTMIN+10 i3blocks
 
