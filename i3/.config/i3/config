@@ -17,16 +17,18 @@ for_window [floating] border normal
 hide_edge_borders smart
 
 
-for_window [class="KeePassXC"] floating enable
 for_window [instance="^Godot_Engine$" class="Godot"] floating enable
 # for_window [class="Godot"] floating enable
 for_window [class="TelegramDesktop"] floating enable
-for_window [class="Element"] floating enable
 for_window [instance="^Media viewer$" class="TelegramDesktop"] floating disable
 for_window [instance="^Media viewer$" class="TelegramDesktop"] fullscreen enable
 for_window [title="^pdfpc - present" ] border none floating enable
 for_window [class="blueman-manager"] floating enable
 for_window [instance="Bluetooth Devices"] floating enable
+for_window [class="KeePassXC"] floating enable
+for_window [class="KeePassXC"] move scratchpad; [class="KeePassXC"] scratchpad show;
+for_window [class="Element"] floating enable;
+for_window [class="Element"] move scratchpad; [class="Element"] scratchpad show;
 
 
 assign [class="Emacs"] 2
