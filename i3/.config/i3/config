@@ -113,7 +113,8 @@ bindsym $mod+Shift+p focus parent
 bindsym $mod+Shift+c focus child
 
 # needs i3lock-blur
-bindsym $mod+Escape exec i3lock -f -n
+# bindsym $mod+Escape exec i3lock -f -n
+bindsym $mod+Escape exec loginctl lock-session
 
 bindsym $mod+p exec ~/scripts/screenshot.sh
 bindsym $mod+c exec sh -c "maim -i \$(xdotool getactivewindow) | xclip -selection clipboard -t image/png"
@@ -287,7 +288,7 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id udiskie -A -s
-exec --no-startup-id xss-lock -- i3lock -f -n
+exec --no-startup-id xss-lock -- betterlockscreen -q -l dim
 
 exec "systemctl --user import-environment; systemctl --user start i3-session.target"
 
