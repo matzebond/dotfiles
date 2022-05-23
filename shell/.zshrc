@@ -119,13 +119,13 @@ alias sudo='sudo ' # allows to use sudo in aliases
 alias part='mpv ~/dld/*.part'
 alias download='aria2c'
 
-zsh_snippets add h '| head ' > /dev/null
-zsh_snippets add t '| tail ' > /dev/null
-zsh_snippets add l '| less ' > /dev/null
-zsh_snippets add g '| grep ' > /dev/null
-zsh_snippets add wc '| wc ' > /dev/null
-zsh_snippets add nul '> /dev/null 2>&1' > /dev/null
-zsh_snippets add null '> /dev/null 2>&1' > /dev/null
+# zsh_snippets add h '| head ' > /dev/null
+# zsh_snippets add t '| tail ' > /dev/null
+# zsh_snippets add l '| less ' > /dev/null
+# zsh_snippets add g '| grep ' > /dev/null
+# zsh_snippets add wc '| wc ' > /dev/null
+# zsh_snippets add nul '> /dev/null 2>&1' > /dev/null
+# zsh_snippets add null '> /dev/null 2>&1' > /dev/null
 bindkey '^S' zsh-snippets-widget-expand
 
 alias -g H='| head'

@@ -20,7 +20,8 @@ fi
 export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
 
 # done in /etc/profile.d/
-# export ANDROID_HOME='/opt/android-sdk' 
+# export ANDROID_HOME='/opt/android-sdk'
+export ANDROID_SDK=$ANDROID_HOME
 # export PATH=$PATH:$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
 if command -v dart &> /dev/null; then
