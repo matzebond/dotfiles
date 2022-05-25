@@ -2,8 +2,9 @@
 Description=Emacs: the extensible, self-documenting text editor
 
 [Service]
-Type=forking
-ExecStart=/usr/bin/emacs --daemon
+Type=notify
+ExecStart=/usr/bin/emacs --fg-daemon
+SuccessExitStatus=15
 ExecStop=/usr/bin/emacsclient --eval "(kill-emacs)"
 Restart=on-abnormal
 TimeoutStartSec=10min
