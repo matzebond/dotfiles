@@ -38,7 +38,7 @@ assign [class="Emacs"] 2
 
 focus_follows_mouse no
 
-bindsym $mod+i exec "i3-input -F '%s'"
+bindsym $mod+i exec rofi -dmenu -p i3-msg -l 0 | xargs i3-msg
 
 set $config "[r]eload re[s]art [e]xit"
 mode $config {
