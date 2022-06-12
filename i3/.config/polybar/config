@@ -413,4 +413,9 @@ menu-0-2-exec = playerctl previous
 menu-0-3 = ""
 menu-0-3-exec = playerctl next
 
-; vim:ft=dosini
+
+[module/alert-kernel-v]
+type = custom/script
+exec = echo "Restart :)"
+exec-if = test "$(uname -r | tr . -)" != "$(pacman -Qi linux | sed -n 's/^Version\s*:\ \(.*\)/\1/p' | tr . -)"
+interval = 10
