@@ -29,9 +29,10 @@ for_window [title="^pdfpc - present" ] border none floating enable
 for_window [class="blueman-manager"] floating enable
 for_window [instance="Bluetooth Devices"] floating enable
 for_window [class="KeePassXC"] floating enable
-for_window [class="KeePassXC" title="Auto-Type - KeePassXC"] move scratchpad; [class="KeePassXC" title="Auto-Type - KeePassXC"] scratchpad show;
+# for_window [class="KeePassXC" title="Auto-Type - KeePassXC"] move scratchpad; [class="KeePassXC" title="Auto-Type - KeePassXC"] scratchpad show;
+for_window [class="KeePassXC" title=".*\.kdbx - KeePassXC"] move scratchpad;
 for_window [class="Element"] floating enable;
-for_window [class="Element"] move scratchpad; [class="Element"] scratchpad show;
+for_window [class="Element"] move scratchpad;
 
 
 assign [class="Emacs"] 2
