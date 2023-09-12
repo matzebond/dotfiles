@@ -1,0 +1,11 @@
+[Unit]
+Description=An information bar for i3
+After=i3-session.target
+Requires=i3-session.target
+
+[Service]
+Type=forking
+ExecStart=%h/.config/polybar/launch.sh
+
+[Install]
+WantedBy=i3-session.target

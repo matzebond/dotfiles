@@ -14,10 +14,11 @@ floating_modifier $mod
 
 # Borders
 default_border pixel 2
-for_window [class="^.*"] border pixel 2
+for_window [all] border pixel 2
 default_floating_border normal
 for_window [floating] border normal
 hide_edge_borders smart
+for_window [all] title_window_icon no
 
 
 for_window [instance="^Godot_Engine$" class="Godot"] floating enable
@@ -29,23 +30,25 @@ for_window [title="^pdfpc - present" ] border none floating enable
 for_window [class="blueman-manager"] floating enable
 for_window [instance="Bluetooth Devices"] floating enable
 for_window [class="KeePassXC"] floating enable
-# for_window [class="KeePassXC" title="Auto-Type - KeePassXC"] move scratchpad; [class="KeePassXC" title="Auto-Type - KeePassXC"] scratchpad show;
-for_window [class="KeePassXC" title=".*\.kdbx - KeePassXC"] move scratchpad;
-for_window [class="Element"] floating enable;
-for_window [class="Element"] move scratchpad;
+for_window [class="KeePassXC" title="Auto-Type - KeePassXC"] move scratchpad, scratchpad show;
+for_window [class="Element"] floating enable
+for_window [class="Element"] move scratchpad, scratchpad show
 
 
 assign [class="Emacs"] 2
 
 focus_follows_mouse no
 
-bindsym $mod+i exec rofi -dmenu -p i3-msg -l 0 | xargs i3-msg
 
-set $config "[r]eload re[s]art [e]xit"
+bindsym $mod+i exec ~/scripts/i3-rofi-input.sh
+
+set $config "[r]eload re[s]art [p]olybar [a]utorandr [e]xit"
 mode $config {
     bindsym r reload
     bindsym s restart
     bindsym e i3-msg exit
+    bindsym p exec systemctl --user restart polybar.service ; mode "default"
+    bindsym a exec autorandr --change --force ; mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -61,8 +64,8 @@ bindsym $mod+Shift+z move container to workspace back_and_forth
 bindsym $mod+m workspace back_and_forth
 bindsym $mod+Shift+m move container to workspace back_and_forth
 
-bindsym $mod+Tab focus output right
-bindsym $mod+Shift+Tab move container to output right; focus output right
+bindsym $mod+Tab focus output next
+bindsym $mod+Shift+Tab move container to output next; focus output next
 
 # Some mouse commands
 bindsym --release button2 kill
@@ -127,7 +130,7 @@ bindcode $mod+Shift+48 exec ~/scripts/rofi_xkb.sh
 
 bindsym $mod+Shift+t exec rofi -show "ap" -modi "ap:~/scripts/audio_profile.sh"
 bindsym $mod+Shift+d exec ~/scripts/monitor_layout.sh
-bindsym $mod+Shift+s exec ~/scripts/rofi_surfraw.sh
+# bindsym $mod+Shift+s exec ~/scripts/rofi_surfraw.sh
 
 #keepassXC autotype
 #bindsym $mod+q nop
@@ -161,11 +164,16 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# move the workspace (between outputs)
+# move the workspace (all windows) between outputs
 bindsym $mod+Ctrl+$down move workspace to output down
 bindsym $mod+Ctrl+$left move workspace to output left
 bindsym $mod+Ctrl+$up move workspace to output up
 bindsym $mod+Ctrl+$right move workspace to output right
+# alternatively, you can use the cursor keys:
+bindsym $mod+Ctrl+Down move workspace to output down
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Up move workspace to output up
+bindsym $mod+Ctrl+Right move workspace to output right
 
 
 # Workspace variable names
@@ -290,8 +298,6 @@ bindsym $mod+r mode "resize"
 #     position top
 #     tray_output primary
 # }
-
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 exec --no-startup-id udiskie -A -s
 exec --no-startup-id xss-lock -- betterlockscreen -q -l dim
