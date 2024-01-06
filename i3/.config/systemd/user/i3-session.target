@@ -5,4 +5,5 @@ BindsTo=graphical-session.target
 Wants=graphical-session-pre.target
 Wants=twmnd.service
 Wants=redshift.service
+Wants=polybar.service
 After=graphical-session-pre.target
