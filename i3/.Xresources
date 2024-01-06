@@ -299,3 +299,8 @@ urxvt.secondaryScreen: 1
 urxvt.secondaryScroll: 0
 urxvt.secondaryWheel: 1
 
+! Restore Ctrl+Shift+(c|v)
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
