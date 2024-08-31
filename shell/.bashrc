@@ -8,7 +8,9 @@
 setopt -s autocd
 setopt -s dotglob
 
-export LESS=-r
+eval $(dircolors -b ~/.dircolors)
+
+export LESS=-R
 
 export HISTCONTROL=ignoredups:erasedups
 # shopt -s histappend # does not work well with erasedups see https://unix.stackexchange.com/questions/18212

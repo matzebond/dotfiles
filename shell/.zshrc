@@ -52,7 +52,6 @@ zcomet load 1ambda/zsh-snippets
 
 zcomet load hlissner/zsh-autopair
 
-
 # fzf installed by pacman
 # zplug "junegunn/fzf", \
 #       from:gh-r, \
@@ -90,11 +89,18 @@ setopt extendedglob
 #   export EDITOR='mvim'
 # fi
 
-
 #export TERM=xterm-256color
-export LESS=-r
+
+eval $(dircolors -b ~/.dircolors)
+# Colorize completions using default `ls` colors.
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+
+export LESS=-R
 
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias ls='ls -v --group-directories-first --color=auto'
 alias l='ls -Alh'
 alias ll='ls -alh'
@@ -144,29 +150,26 @@ bindkey "^[[3;3~" kill-word
 
 WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
-
 [[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" --no-use # This loads nvm
-
 
 case "$TERM" in
 "dumb")
     PS1="> "
     ;;
-xterm*|rxvt*|eterm*|screen*)
-    ;;
+xterm* | rxvt* | eterm* | screen*) ;;
+
 *)
     PS1="> "
     ;;
 esac
 
-
 # fzf
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-[[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/usr/share/fzf/completion.zsh" 2>/dev/null
 [ -f "/usr/share/fzf/key-bindings.zsh" ] && source "/usr/share/fzf/key-bindings.zsh"
 
 export FZF_DEFAULT_OPTS='--height 100% --reverse'
@@ -176,17 +179,16 @@ export FZF_DEFAULT_OPTS='--height 100% --reverse'
 # - The first argument to the function ($1) is the base path to start traversal
 # - See the source code (completion.{bash,zsh}) for the details.
 _fzf_compgen_path() {
-  fd --hidden --follow --exclude ".git" . "$1"
+    fd --hidden --follow --exclude ".git" . "$1"
 }
 
 # Use fd to generate the list for directory completion
 _fzf_compgen_dir() {
-  fd --type d --hidden --follow --exclude ".git" . "$1"
+    fd --type d --hidden --follow --exclude ".git" . "$1"
 }
 
 export FZF_DEFAULT_COMMAND='fd --type f'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 
 # for profiling
 # zprof
