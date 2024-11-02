@@ -5,8 +5,10 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-setopt -s autocd
-setopt -s dotglob
+shopt -s autocd
+shopt -s cdable_vars
+shopt -s cdspell
+shopt -s dotglob
 complete -o filenames
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
