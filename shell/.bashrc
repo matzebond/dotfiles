@@ -9,7 +9,6 @@ shopt -s autocd
 shopt -s cdable_vars
 shopt -s cdspell
 shopt -s dotglob
-complete -o filenames
 
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 stty -ixon
