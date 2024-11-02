@@ -98,22 +98,8 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 export LESS=-R
 
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias ls='ls -v --group-directories-first --color=auto'
-alias l='ls -Alh'
-alias ll='ls -alh'
-alias cp='cp -i'
-alias rmf='rm -rf'
-alias rm='rm -i'
-alias df='df -h'
-mkcd () { # md is already an alias
-    mkdir $1 && cd $1
-}
-alias tree='tree -C'
-alias split='split -d -a 3'
-alias fuck='sudo !!'
+source ~/.aliases
+
 alias livestreamer='streamlink'
 alias image='nomacs'
 alias screensaver='xset s'
