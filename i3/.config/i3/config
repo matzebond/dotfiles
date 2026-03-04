@@ -1,5 +1,5 @@
 set $mod Mod4
-set $term urxvt
+set $term kitty
 # i3-sensible-terminal, termite, kitty
 
 
@@ -42,13 +42,15 @@ focus_follows_mouse no
 
 bindsym $mod+i exec ~/scripts/i3-rofi-input.sh
 
-set $config "[r]eload re[s]art [p]olybar [a]utorandr [e]xit"
+set $config "[r]eload re[s]art [p]olybar [a]utorandr [y]ubikey [v]pn [e]xit"
 mode $config {
     bindsym r reload
     bindsym s restart
     bindsym e i3-msg exit
     bindsym p exec systemctl --user restart polybar.service ; mode "default"
     bindsym a exec autorandr --change --force ; mode "default"
+    bindsym y exec sudo udevadm trigger --subsystem-match=input --action=change; mode "default"
+    bindsym v exec $term ~/scripts/deepl-vpn DEEPL ; mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -100,8 +102,7 @@ bindsym $mod+s split h
 bindsym $mod+v split v
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+x layout toggle tabbed splith
-bindsym $mod+t layout toggle split
+bindsym $mod+t layout toggle tabbed splith
 # bindsym $mod+w layout stacking
 # bindsym $mod+w layout tabbed
 
@@ -123,6 +124,9 @@ bindsym $mod+Shift+c focus child
 # needs i3lock-blur
 bindsym $mod+Escape exec loginctl lock-session
 
+bindsym $mod+x exec ~/scripts/i3-rofi-input.sh
+bindsym $mod+b exec ~/scripts/rofi-bluetooth.sh
+bindsym $mod+a exec ~/scripts/audio_profile.sh
 bindsym $mod+p exec ~/scripts/screenshot.sh
 bindsym $mod+c exec sh -c "maim -i \$(xdotool getactivewindow) | xclip -selection clipboard -t image/png"
 
@@ -141,10 +145,10 @@ set $up k
 set $right l
 
 # change focus
-bindsym $mod+$up focus up
-bindsym $mod+$down focus down
-bindsym $mod+$left focus left
-bindsym $mod+$right focus right
+bindsym $mod+$up exec ~/.local/bin/i3-call focus up "C-w $up"
+bindsym $mod+$down exec ~/.local/bin/i3-call focus down "C-w $down"
+bindsym $mod+$left exec ~/.local/bin/i3-call focus left "C-w $left"
+bindsym $mod+$right exec ~/.local/bin/i3-call focus right "C-w $right"
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
