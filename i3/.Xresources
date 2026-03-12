@@ -1,3 +1,5 @@
+Xcursor.size: 28
+
 ! "Enabled modi" Set from: XResources
 rofi.modi:                           window,run,drun,ssh
 ! "Window width" Set from: Default
