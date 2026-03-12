@@ -10,34 +10,37 @@ export BROWSER="/usr/bin/firefox"
 
 export MAILDIR="$HOME/.mail"
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/scripts
 
-if command -v rustc &> /dev/null ; then
-     export PATH=$PATH:$HOME/.cargo/bin
-     export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH=$PATH:$HOME/.cargo/bin
 fi
 
-export JAVA_HOME='/usr/lib/jvm/java-8-openjdk'
+if command -v rustc &>/dev/null; then
+    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
+
+export JAVA_HOME='/usr/lib/jvm/default-runtime'
 
 # done in /etc/profile.d/
 # export ANDROID_HOME='/opt/android-sdk'
 export ANDROID_SDK=$ANDROID_HOME
 # export PATH=$PATH:$JAVA_HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
 
-if command -v dart &> /dev/null; then
+if command -v dart &>/dev/null; then
     export DART_SDK="/opt/dart-sdk"
 fi
 
-if command -v node &> /dev/null ; then
+if command -v node &>/dev/null; then
     export NVM_DIR="/home/maschm/.nvm"
     export PATH=$PATH:$HOME"/.node_modules/bin"
     export npm_config_prefix=~/.node_modules
 fi
 
-if command -v ruby &> /dev/null; then
+if command -v ruby &>/dev/null; then
     export RUBY_GEM_PATH="$(ruby -e 'print Gem.user_dir')/bin"
     if [ -x $RUBY_GEM_PATH ]; then
-       export PATH=$PATH:$RUBY_GEM_PATH
+        export PATH=$PATH:$RUBY_GEM_PATH
     fi
 fi
 
