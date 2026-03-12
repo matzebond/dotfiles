@@ -100,6 +100,9 @@ image/jp2=org.nomacs.ImageLounge.desktop;
 text/x-nfo=emacs.desktop;
 image/x-sony-arw=org.nomacs.ImageLounge.desktop;
 image/x-nikon-nef=org.nomacs.ImageLounge.desktop;
+application/zip=emacs.desktop;
+application/x-bzip2=emacsclient.desktop;
+text/csv=libreoffice-calc.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox.desktop;
