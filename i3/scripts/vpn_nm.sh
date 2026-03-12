@@ -15,6 +15,6 @@ vpns=$(nmcli -t -f name,type connection show --order name --active 2>/dev/null |
 if [ -n "$vpns" ]; then
     echo $vpns
 else
-	echo "no VPN"
+	echo "​"
     false
 fi
