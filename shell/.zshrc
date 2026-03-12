@@ -1,6 +1,7 @@
 # for profiling
 # zmodload zsh/zprof
 
+zstyle ':completion::complete:*' gain-privileges 1
 
 fpath+=~/.zfunc
 
@@ -35,13 +36,15 @@ export ZSH=/home/maschm/.zcomet/repos/ohmyzsh/ohmyzsh
 
 # Clone zcomet if necessary
 if [[ ! -f ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh ]]; then
-  command git clone https://github.com/agkozak/zcomet.git ${ZDOTDIR:-${HOME}}/.zcomet/bin
+    command git clone https://github.com/agkozak/zcomet.git ${ZDOTDIR:-${HOME}}/.zcomet/bin
 fi
 source ${ZDOTDIR:-${HOME}}/.zcomet/bin/zcomet.zsh
 
 AGKOZAK_MULTILINE=0
 
 zcomet load ohmyzsh lib compfix.zsh completion.zsh correction.zsh functions.zsh history.zsh key-bindings.zsh misc.zsh spectrum.zsh termsupport.zsh
+zcomet load ohmyzsh plugins/direnv
+zcomet load ohmyzsh plugins/dotenv
 
 zcomet load mafredri/zsh-async async.zsh
 
