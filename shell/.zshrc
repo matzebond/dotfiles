@@ -105,6 +105,23 @@ source ~/.aliases
 
 alias livestreamer='streamlink'
 alias image='nomacs'
+alias image_from_clipboard='xclip -selection clipboard -target image/png -o'
+alias image_to_clipboard='xclip -selection clipboard -target image/png -in < '
+# image_from_clipboard () {}
+
+jqi() {
+    jq -C 'walk(if type == "string" and startswith("data:image/png") then empty else . end)' $@
+}
+jless() {
+    jq -C 'walk(if type == "string" and startswith("data:image/png") then empty else . end)' $1 | less
+}
+
+rf () {
+    file=$(readlink -f ${1:-.})
+    echo $file
+    echo $file | xclip -selection clipboard -i -rmlastnl
+}
+
 alias screensaver='xset s'
 alias reloadXresources='xrdb ~/.Xresources'
 alias reloadZsh='source ~/.zshrc'
