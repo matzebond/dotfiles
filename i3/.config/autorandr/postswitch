@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+xinput map-to-output "ELAN901C:00 04F3:2D19" eDP-1
+
+notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
+
+systemctl --user restart polybar.service
