@@ -1,18 +1,36 @@
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
 alias ls='ls -v --group-directories-first --color=auto'
 alias l='ls -Alh'
 alias ll='ls -alh'
+
 alias cp='cp -i'
 alias rmf='rm -rf'
 alias rm='rm -i'
 alias df='df -h'
+alias mcd='mkdir $1 && cd $1'
 mkcd() { # md is already an alias
     mkdir $1 && cd $1
 }
 alias tree='tree -C'
 alias split='split -d -a 3'
+alias pkill="pkill -f "
+
 alias fuck='sudo !!'
 alias rg="rg --hidden --glob '!.git'"
+
+# python
+alias my_pdb="python -m ipdb -c continue "
+
+alias urp="uv run python"
+alias urt="uv run pytest"
+alias urpt="uv run pytest"
+alias urd="uv run python -m ipdb -c continue "
+
+# git
+alias ga="git add "
+alias gcm="git commit -m "
+
+alias clauded='claude --dangerously-skip-permissions'
