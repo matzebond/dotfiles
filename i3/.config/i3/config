@@ -1,7 +1,19 @@
 set $mod Mod4
+
 set $term kitty
 # i3-sensible-terminal, termite, kitty
 
+# Workspace variable names
+set $WS1 "1"
+set $WS2 "2"
+set $WS3 "3"
+set $WS4 "4"
+set $WS5 "5"
+set $WS6 "6"
+set $WS7 "7"
+set $WS8 "8"
+set $WS9 "9"
+set $WS10 "10"
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -33,9 +45,21 @@ for_window [class="KeePassXC"] floating enable
 for_window [class="KeePassXC" title="Auto-Type - KeePassXC"] move scratchpad, scratchpad show;
 for_window [class="Element"] floating enable
 for_window [class="Element"] move scratchpad, scratchpad show
+for_window [class="^zoom$" title="^zoom$"] floating enable, move to workspace "5" # zoom popup
+for_window [class="^zoom$" title="Zoom Workplace"] # your main window rules
 
 
-assign [class="Emacs"] 2
+assign [class="Emacs"] $WS2
+assign [class="zoom"] $WS5
+assign [class="Cursor"] $WS7
+
+workspace $WS1 output primary
+workspace $WS2 output HDMI-1 primary
+workspace $WS3 output primary
+workspace $WS4 output primary
+workspace $WS5 output HDMI-1 primary
+
+workspace $WS7 output HDMI-1
 
 focus_follows_mouse no
 
@@ -180,23 +204,7 @@ bindsym $mod+Ctrl+Up move workspace to output up
 bindsym $mod+Ctrl+Right move workspace to output right
 
 
-# Workspace variable names
-set $WS1 "1"
-set $WS2 "2"
-set $WS3 "3"
-set $WS4 "4"
-set $WS5 "5"
-set $WS6 "6"
-set $WS7 "7"
-set $WS8 "8"
-set $WS9 "9"
-set $WS10 "10"
 
-workspace $WS1 output primary
-workspace $WS2 output primary
-workspace $WS3 output primary
-workspace $WS4 output primary
-workspace $WS5 output primary
 
 # Switch to workspace
 bindsym $mod+1 workspace $WS1
